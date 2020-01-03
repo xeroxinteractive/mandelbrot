@@ -1,0 +1,5 @@
+
+<svg class="Header-action Header-action--tablet" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0V0z" fill="none"/>
+  <path d="M4.9 18h14.2V6H4.9v12zm2-10h10.2v8H6.9V8z"/>
+</svg>

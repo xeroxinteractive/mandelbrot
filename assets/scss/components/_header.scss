@@ -1,6 +1,7 @@
 .Header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position: relative;
   z-index: 10;
   background-color: $color-header-background;
@@ -10,8 +11,10 @@
 }
 
 .Header-title {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
   @include link-default(inherit, none);
-  padding: 0.75rem 1rem;
   font-size: 1.125rem; // 18px
   line-height: (24 / 18);
   white-space: nowrap;
@@ -19,8 +22,12 @@
   text-overflow: ellipsis;
 }
 
+.Header-title svg {
+  height: 30px;
+  margin-right: 0.5rem;
+}
+
 .Header-button {
-  @include border-inline(end, 1px solid rgba($color-header-content, 0.25));
   display: block;
   flex-shrink: 0;
   border: 0;
@@ -29,35 +36,85 @@
   touch-action: manipulation;
   color: inherit;
   cursor: pointer;
+  background-color: $color-button-background;
 
   &:hover {
-    background-color: rgba($color-header-content, 0.05);
+    outline: none;
+    background-color: darken($color-button-background, 10%);
   }
 
   &:active {
-    background-color: rgba($color-header-content, 0.1);
+    outline: none;
+    background-color: darken($color-button-background, 20%);
+  }
+
+  &:focus {
+    z-index: 1;
   }
 }
 
-.Header-navToggle {
-  svg {
-    display: none;
-    margin: 0 auto;
-    fill: $color-header-content;
-  }
+.Header > .Header-start,
+.Header > .Header-end {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
-.Frame {
-  .Header-navToggleIcon--open {
-    display: block;
-  }
+[dir='ltr'] .Header-end .Header-button {
+  border-right: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.Frame.is-closed {
-  .Header-navToggleIcon--open {
-    display: none;
+[dir='right'] .Header-end .Header-button {
+  border-right: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.Header-button svg {
+  margin: 0 auto;
+  fill: $color-button-content;
+}
+
+$toggles: (
+    'name': 'navToggle',
+    'toggleClass': 'is-closed',
+    'onState': 'open',
+    'offState': 'closed',
+  ),
+  (
+    'name': 'javascriptToggle',
+    'toggleClass': 'is-javascript',
+    'onState': 'enabled',
+    'offState': 'disabled',
+  ),
+  (
+    'name': 'directionToggle',
+    'toggleClass': 'is-rtl',
+    'onState': 'ltr',
+    'offState': 'rtl',
+  );
+@each $toggle in $toggles {
+  .Header-#{map-get($toggle, 'name')} {
+    svg {
+      display: none;
+      margin: 0 auto;
+      fill: $color-button-content;
+    }
   }
-  .Header-navToggleIcon--closed {
-    display: block;
+
+  .Frame {
+    .Header-#{map-get($toggle, 'name')}Icon--#{map-get($toggle, 'onState')} {
+      display: block;
+    }
+  }
+
+  .Frame.#{map-get($toggle, 'toggleClass')} {
+    .Header-#{map-get($toggle, 'name')}Icon--#{map-get($toggle, 'onState')} {
+      display: none;
+    }
+    .Header-#{map-get($toggle, 'name')}Icon--#{map-get($toggle, 'offState')} {
+      display: block;
+    }
   }
 }

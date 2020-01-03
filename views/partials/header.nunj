@@ -1,7 +1,28 @@
 <div class="Header">
-    <button class="Header-button Header-navToggle" data-action="toggle-sidebar">
+  <div class="Header-start">
+    <button class="Header-button Header-navToggle" data-action="toggle-sidebar" title="Show/Hide Sidebar">
         {% include 'icons/close-nav.svg' %}
         {% include 'icons/open-nav.svg' %}
     </button>
-    <a href="{{ path('/') }}" class="Header-title" data-pjax>{{ frctl.get('project.title') | default('Component Library') }}</a>
+    <a href="{{ path('/') }}" class="Header-title" data-pjax>{% include 'icons/logo.svg' %} <span>Framework</span></a>
+  </div>
+  <div class="Header-end">
+    <button class="Header-button Header-actionMobile" data-action="action-mobile" title="View Mobile">
+        {% include 'icons/mobile.svg' %}
+    </button>
+    <button class="Header-button Header-actionTablet" data-action="action-tablet" title="View Tablet">
+        {% include 'icons/tablet.svg' %}
+    </button>
+    <button class="Header-button Header-actionDesktop" data-action="action-desktop" title="View Desktop">
+        {% include 'icons/desktop.svg' %}
+    </button>
+    <button class="Header-button Header-directionToggle" data-action="toggle-direction" title="Toggle LTR/RTL">
+        {% include 'icons/ltr.svg' %}
+        {% include 'icons/rtl.svg' %}
+    </button>
+    <button class="Header-button Header-javascriptToggle" data-action="toggle-javascript" title="Toggle JavaScript">
+        {% include 'icons/javascript-enabled.svg' %}
+        {% include 'icons/javascript-disabled.svg' %}
+    </button>
+  </div>
 </div>

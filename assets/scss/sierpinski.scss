@@ -1,7 +1,7 @@
 $font-family-monospace: Hack, Consolas, Monaco, 'Andale Mono', monospace !default;
 $font-family-sans-serif: 'Open Sans', Helvetica, Arial, sans-serif !default;
 
-$color-link: #2288ff !default;
+$color-link: #81141d !default;
 $color-text: #535363 !default;
 $color-heading: #444444 !default;
 
@@ -11,8 +11,10 @@ $color-background-offset: #f6f6f6 !default;
 $color-ui-hover: rgba($color-text, 0.05) !default;
 $color-ui-active: rgba($color-text, 0.075) !default;
 
-$color-header-background: #1144ff !default;
-$color-header-content: #ffffff !default;
+$color-header-background: #ffffff !default;
+$color-header-content: #000000 !default;
+$color-button-background: #d92231;
+$color-button-content: #ffffff;
 
 $color-frame-border: rgba($color-text, 0.25) !default;
 
