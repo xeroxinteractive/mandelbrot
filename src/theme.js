@@ -7,14 +7,13 @@ const packageJSON = require('../package.json');
 
 module.exports = function(options) {
   const config = _.defaultsDeep(_.clone(options || {}), {
-    skin: 'default',
     rtl: false,
     lang: 'en',
     styles: 'default',
     scripts: 'default',
     format: 'json',
     static: {
-      mount: 'themes/mandelbrot',
+      mount: 'themes/sierpinski',
     },
     version: packageJSON.version,
     favicon: null,
@@ -34,13 +33,13 @@ module.exports = function(options) {
     .concat(config.stylesheet)
     .filter((url) => url)
     .map((url) =>
-      url === 'default' ? `/${config.static.mount}/css/${config.skin}.css` : url
+      url === 'default' ? `/${config.static.mount}/css/sierpinski.css` : url
     );
   config.scripts = []
     .concat(config.scripts)
     .filter((url) => url)
     .map((url) =>
-      url === 'default' ? `/${config.static.mount}/js/mandelbrot.js` : url
+      url === 'default' ? `/${config.static.mount}/js/sierpinski.js` : url
     );
   config.favicon = config.favicon || `/${config.static.mount}/favicon.ico`;
 
