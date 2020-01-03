@@ -43,7 +43,7 @@ gulp.task('lint:sass', function() {
 
 gulp.task('css', ['lint:sass'], function() {
   return gulp
-    .src('./assets/scss/theme.scss')
+    .src('./assets/scss/sierpinski.scss')
 
     .pipe(sourcemaps.init())
     .pipe(sassGlob())
@@ -104,7 +104,7 @@ gulp.task('img:watch', function() {
 //
 // Task sets
 //
-gulp.task('watch', ['css:watch', 'js:watch', 'img:watch']);
+gulp.task('watch', ['default', 'css:watch', 'js:watch', 'img:watch']);
 
 gulp.task('default', ['fonts', 'css', 'js', 'img']);
 
@@ -112,7 +112,7 @@ gulp.task('default', ['fonts', 'css', 'js', 'img']);
 // Utils
 //
 function compileJS(watch) {
-  let bundler = browserify('./assets/js/mandelbrot.js', {
+  let bundler = browserify('./assets/js/sierpinski.js', {
     debug: true,
   })
     .transform(eslintify)
@@ -135,7 +135,7 @@ function compileJS(watch) {
         console.error(err.message);
         // this.emit('end');
       })
-      .pipe(source('mandelbrot.js'))
+      .pipe(source('sierpinski.js'))
       .pipe(buffer());
 
     if (!watch) {
@@ -152,3 +152,27 @@ function compileJS(watch) {
 
   rebundle();
 }
+
+//
+// Fractal
+//
+const fractal = (module.exports = require('@frctl/fractal').create());
+
+fractal.set('project.title', 'Sierpinski Test');
+fractal.set('project.author', 'Andrew Leedham');
+
+const sierpinski = require('./')();
+
+fractal.web.theme(sierpinski);
+
+const logger = fractal.cli.console;
+
+gulp.task('fractal:start', ['watch'], function() {
+  const server = fractal.web.server({
+    sync: true,
+  });
+  server.on('error', (err) => logger.error(err.message));
+  return server.start().then(() => {
+    logger.success(`Fractal server is now running at ${server.url}`);
+  });
+});

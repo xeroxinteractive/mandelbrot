@@ -13,7 +13,7 @@
   "author": "Andrew Leedham <Andrew.Leedham@xerox.com>",
   "license": "MIT",
   "scripts": {
-    "start": "gulp watch",
+    "start": "gulp fractal:start",
     "build": "gulp"
   },
   "commitlint": {
@@ -74,7 +74,7 @@
     "watchify": "^3.7.0"
   },
   "dependencies": {
-    "@frctl/fractal": "^1.1.0-alpha.0",
+    "@frctl/fractal": "^1.2.1",
     "js-beautify": "^1.6.2",
     "lodash": "^4.12.0"
   }
