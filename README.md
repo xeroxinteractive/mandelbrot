@@ -1,5 +1,3 @@
-# Mandelbrot
+# Sierpinski 
 
-The default web UI theme for Fractal.
-
-See the Fractal [documentation](http://fractal.build/guide) for details on configuration and usage.
+A web UI theme for Fractal built by Xerox. Based on the [default mandelbrot theme](https://github.com/frctl/mandelbrot).
