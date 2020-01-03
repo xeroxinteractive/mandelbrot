@@ -160,6 +160,8 @@ const fractal = (module.exports = require('@frctl/fractal').create());
 
 fractal.set('project.title', 'Sierpinski Test');
 fractal.set('project.author', 'Andrew Leedham');
+fractal.docs.set('path', `${__dirname}/test/docs`); // location of the documentation directory.
+fractal.components.set('path', `${__dirname}/test/components`); // location of the component directory.
 
 const sierpinski = require('./')();
 
