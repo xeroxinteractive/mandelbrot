@@ -1,4 +1,4 @@
-button {
+.button {
   font-family: sans-serif;
   font-size: 1rem;
   line-height: 1.3rem;
@@ -9,7 +9,16 @@ button {
   cursor: pointer;
 }
 
-button:hover,
-button:active {
+.button:hover,
+.button:active {
   background: maroon;
+}
+
+.button--blue {
+  background: blue;
+}
+
+.button--blue:hover,
+.button--blue:active {
+  background: darkblue;
 }

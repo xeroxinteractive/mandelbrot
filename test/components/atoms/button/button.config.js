@@ -3,4 +3,12 @@ module.exports = {
   context: {
     label: 'Click me!',
   },
+  variants: [
+    {
+      name: 'Blue Button',
+      context: {
+        variant: 'blue',
+      },
+    },
+  ],
 };
