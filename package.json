@@ -14,7 +14,8 @@
   "license": "MIT",
   "scripts": {
     "start": "gulp fractal:start",
-    "build": "gulp"
+    "build": "gulp",
+    "prepublishOnly": "yarn run build"
   },
   "commitlint": {
     "extends": [

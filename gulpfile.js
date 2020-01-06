@@ -136,11 +136,8 @@ function compileJS(watch) {
         // this.emit('end');
       })
       .pipe(source('sierpinski.js'))
-      .pipe(buffer());
-
-    if (!watch) {
-      bundle.pipe(uglify());
-    }
+      .pipe(buffer())
+      .pipe(uglify());
 
     bundle
       .pipe(sourcemaps.init({ loadMaps: true }))
