@@ -33,6 +33,32 @@ class Tree {
     events.on('main-content-preload', (e, url) => {
       this.selectItem(getTreeUrl(url));
     });
+
+    const collapseAll = this._el.find('[data-role="collapse-all"]');
+    if (collapseAll) {
+      this.collapseAll = this.collapseAll.bind(this);
+      collapseAll.on('click', this.collapseAll);
+    }
+
+    const expandAll = this._el.find('[data-role="expand-all"]');
+    if (expandAll) {
+      this.expandAll = this.expandAll.bind(this);
+      expandAll.on('click', this.expandAll);
+    }
+  }
+
+  collapseAll() {
+    for (const key in this._collections) {
+      const collection = this._collections[key];
+      collection.close();
+    }
+  }
+
+  expandAll() {
+    for (const key in this._collections) {
+      const collection = this._collections[key];
+      collection.open();
+    }
   }
 
   selectItem(url) {

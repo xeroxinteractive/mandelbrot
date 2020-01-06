@@ -3,10 +3,31 @@
 }
 
 .Tree-title {
-  @include font(label);
+  display: flex;
+  justify-content: space-between;
   @include padding-inline(start, 1rem);
+  @include padding-inline(end, 1rem);
   margin-bottom: 0.5rem;
   color: $color-sidebar-heading;
+
+  h3 {
+    @include font(label);
+  }
+
+  button {
+    cursor: pointer;
+  }
+  svg {
+    fill: $color-heading;
+    opacity: 0.75;
+  }
+
+  ul {
+    line-height: 0;
+    li {
+      display: inline-block;
+    }
+  }
 }
 
 .Tree-collection {

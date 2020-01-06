@@ -2,7 +2,21 @@
 
 {% macro tree(root, current, request) %}
 <div class="Tree" data-behaviour="tree" id="tree-{{ root.name }}">
-    <h3 class="Tree-title">{{ root.label }}</h3>
+    <div class="Tree-title">
+      <h3>{{ root.label }}</h3>
+      <ul>
+        <li>
+          <button tabindex="0" class="Tree-button" data-role="collapse-all" title="Collapse all">
+            {% include 'icons/collapse-all.svg' %}
+          </button>
+        </li>
+        <li>
+          <button tabindex="0" class="Tree-button" data-role="expand-all" title="Expand all">
+            {% include 'icons/expand-all.svg' %}
+          </button>
+        </li>
+      </ul>
+    </div>
     <ul class="Tree-items Tree-depth-1">
         {{ leaves(root.filter('isHidden', false).items(), root, current, 2, request) }}
     </ul>
