@@ -16,10 +16,13 @@
 
   button {
     cursor: pointer;
-  }
-  svg {
-    fill: $color-heading;
-    opacity: 0.75;
+    svg {
+      fill: $color-heading;
+      opacity: 0.75;
+    }
+    &:hover svg {
+      fill: darken($color-heading, 50%);
+    }
   }
 
   ul {
