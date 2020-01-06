@@ -14,7 +14,12 @@ module.exports = function(element) {
   const dir = $('html').attr('dir');
   const header = el.find('> [data-role="header"]');
   const body = el.find('> [data-role="body"]');
-  const toggle = el.find('[data-action="toggle-sidebar"]');
+  const sidebarToggle = el.find('[data-action="toggle-sidebar"]');
+  const javascriptToggle = el.find('[data-action="toggle-javascript"]');
+  const directionToggle = el.find('[data-action="toggle-direction"]');
+  const mobileAction = el.find('[data-action="action-mobile"]');
+  const tabletAction = el.find('[data-action="action-tablet"]');
+  const desktopAction = el.find('[data-action="action-desktop"]');
   const sidebar = body.children('[data-role="sidebar"]');
   const main = body.children('[data-role="main"]');
   const handle = body.children('[data-role="frame-resize-handle"]');
@@ -26,7 +31,10 @@ module.exports = function(element) {
   let sidebarState = utils.isSmallScreen()
     ? 'closed'
     : storage.get(`frame.state`, 'open');
+  let javascriptState = storage.get('frame.javascript', true);
+  let directionState = storage.get('frame.direction', 'ltr');
   const scrollPos = storage.get(`frame.scrollPos`, 0);
+  let previewWidth = storage.get('preview.width', undefined);
   let dragOccuring = false;
   let isInitialClose = false;
   let handleClicks = 0;
@@ -37,6 +45,12 @@ module.exports = function(element) {
     isInitialClose = true;
     closeSidebar();
   }
+
+  toggleJavaScript(javascriptState);
+
+  toggleDirection(directionState);
+
+  setFrameWidth(previewWidth, true);
 
   sidebar.scrollTop(scrollPos);
 
@@ -79,8 +93,6 @@ module.exports = function(element) {
       storage.set(`frame.scrollPos`, sidebar.scrollTop());
     }, 50)
   );
-
-  toggle.on('click', toggleSidebar);
 
   win.on('resize', () => {
     if (sidebarState === 'open' && doc.outerWidth() < sidebarWidth + 50) {
@@ -144,11 +156,71 @@ module.exports = function(element) {
     return false;
   }
 
+  sidebarToggle.on('click', toggleSidebar);
+
   function setSidebarWidth(width) {
     sidebarWidth = width;
     sidebar.outerWidth(width);
     storage.set(`frame.sidebar`, width);
   }
+
+  function toggleJavaScript(state = !javascriptState) {
+    const iframe = document.querySelector('.Preview-iframe');
+    if (iframe) {
+      javascriptState = state;
+      if (javascriptState) {
+        iframe.sandbox =
+          'allow-same-origin allow-scripts allow-forms allow-modals';
+      } else {
+        iframe.sandbox = 'allow-same-origin allow-forms allow-modals';
+      }
+      iframe.contentWindow.location.reload();
+      if (javascriptState) {
+        el.removeClass('javascript-disabled');
+      } else {
+        el.addClass('javascript-disabled');
+      }
+      storage.set('frame.javascript', javascriptState);
+    }
+  }
+
+  javascriptToggle.on('click', () => toggleJavaScript());
+
+  function toggleDirection(state = directionState === 'rtl' ? 'ltr' : 'rtl') {
+    const iframe = document.querySelector('.Preview-iframe');
+    const iframeHtml =
+      iframe && iframe.contentWindow.document.getElementsByTagName('html')[0];
+    if (iframeHtml) {
+      directionState = state;
+      iframeHtml.dir = state;
+      if (state !== 'rtl') {
+        el.removeClass('is-rtl');
+      } else {
+        el.addClass('is-rtl');
+      }
+      storage.set('frame.direction', directionState);
+    }
+  }
+
+  directionToggle.on('click', () => toggleDirection());
+
+  function setFrameWidth(width, initial = false) {
+    const preview = doc.find('.Preview-wrapper');
+    if (preview) {
+      previewWidth = width;
+      preview.css({
+        width: `${width}px`,
+        transition: initial ? 'none' : '0.5s ease width',
+      });
+      storage.set('preview.width', previewWidth);
+    }
+  }
+
+  mobileAction.on('click', () => setFrameWidth(385));
+
+  tabletAction.on('click', () => setFrameWidth(778));
+
+  desktopAction.on('click', () => setFrameWidth(1210));
 
   return {
     closeSidebar: closeSidebar,
