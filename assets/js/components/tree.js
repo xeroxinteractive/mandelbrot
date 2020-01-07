@@ -37,27 +37,27 @@ class Tree {
     const collapseAll = this._el.find('[data-role="collapse-all"]');
     if (collapseAll) {
       this.collapseAll = this.collapseAll.bind(this);
-      collapseAll.on('click', this.collapseAll);
+      collapseAll.on('click', () => this.collapseAll());
     }
 
     const expandAll = this._el.find('[data-role="expand-all"]');
     if (expandAll) {
       this.expandAll = this.expandAll.bind(this);
-      expandAll.on('click', this.expandAll);
+      expandAll.on('click', () => this.expandAll());
     }
   }
 
-  collapseAll() {
+  collapseAll(silent) {
     for (const key in this._collections) {
       const collection = this._collections[key];
-      collection.close();
+      collection.close(silent);
     }
   }
 
-  expandAll() {
+  expandAll(silent) {
     for (const key in this._collections) {
       const collection = this._collections[key];
-      collection.open();
+      collection.open(silent);
     }
   }
 

@@ -10,3 +10,15 @@
     margin-top: 1.5rem;
   }
 }
+
+.Navigation-search {
+  padding: 0 1rem;
+
+  input {
+    width: 100%;
+    @include font(caption);
+    padding: 0.1rem 0.2rem;
+  }
+
+  margin-bottom: 1.5rem;
+}

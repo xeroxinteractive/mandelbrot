@@ -5,8 +5,7 @@
 .Tree-title {
   display: flex;
   justify-content: space-between;
-  @include padding-inline(start, 1rem);
-  @include padding-inline(end, 1rem);
+  padding: 0 1rem;
   margin-bottom: 0.5rem;
   color: $color-sidebar-heading;
 
