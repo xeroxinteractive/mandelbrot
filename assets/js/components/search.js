@@ -2,6 +2,7 @@
 
 const $ = global.jQuery;
 const utils = require('../utils');
+const storage = require('../storage');
 
 const whitespaceRegex = /^\s*$/;
 
@@ -9,17 +10,27 @@ class Search {
   constructor(el, navTrees) {
     this._navTrees = navTrees;
     this._el = $(el);
+    const initialValue = storage.get('search.value', '');
+    this._el.attr('value', initialValue);
 
     this.trees = navTrees.map((navTree) => ({
       navTree,
       searchTree: this.createSearchTree(navTree._el),
     }));
 
+    if (initialValue !== '') {
+      for (const tree of this.trees) {
+        this.updateTree(tree, initialValue);
+      }
+    }
+
     this._el.on(
       'input',
       utils.debounce((e) => {
+        const value = e.target.value;
+        storage.set('search.value', value);
         for (const tree of this.trees) {
-          this.updateTree(tree, e.target.value);
+          this.updateTree(tree, value);
         }
       }, 200)
     );
@@ -44,14 +55,6 @@ class Search {
 
     return tree;
   }
-
-  // match(element, phrase) {
-  //   return element
-  //     .text()
-  //     .trim()
-  //     .toLowerCase()
-  //     .includes(phrase);
-  // }
 
   updateTree(tree, rawPhrase) {
     const { navTree, searchTree } = tree;
@@ -87,52 +90,6 @@ class Search {
       }
     }
   }
-
-  // updateSearch(phrase) {
-  //   const invalidPhrase = whitespaceRegex.test(phrase);
-  //   for (const tree of this._navTrees) {
-  //     tree.show();
-  //     let treeCount = 0;
-  //     for (const collection of tree._collections) {
-  //       collection.show();
-  //       let collectionCount = 0;
-  //       const items = collection._el.find('[data-role="item"]');
-  //       for (const item of items) {
-  //         const $item = $(item);
-  //         $item.css({ display: '' });
-  //         if (this.match($item, phrase)) {
-  //           treeCount++;
-  //           collectionCount++;
-  //           collection.open(true);
-  //         } else if (!invalidPhrase) {
-  //           $item.css({ display: 'none' });
-  //         }
-  //       }
-  //       if (!invalidPhrase) {
-  //         if (this.match(collection._el, phrase)) {
-  //           console.log('collection match?');
-  //           console.log(collection);
-  //           collection.show();
-  //           collection.open(true);
-  //           for (const item of items) {
-  //             console.log('item');
-  //             const $item = $(item);
-  //             $item.css({ display: '' });
-  //           }
-  //         } else if (collectionCount === 0) {
-  //           collection.hide();
-  //         }
-  //       }
-  //     }
-  //     if (!invalidPhrase) {
-  //       if (this.match(tree._el, phrase)) {
-  //         tree.show();
-  //       } else if (treeCount === 0) {
-  //         tree.hide();
-  //       }
-  //     }
-  //   }
-  // }
 }
 
 module.exports = Search;
