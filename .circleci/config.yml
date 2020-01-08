@@ -1,0 +1,59 @@
+version: 2
+
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:lts
+  resource_class: small
+
+jobs:
+  install_build:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - node-lts-cache-{{ checksum "./yarn.lock" }}
+      - run: yarn install
+      - run: yarn run build
+      - save_cache:
+          key: node-lts-cache-{{ checksum "./yarn.lock" }}
+          paths:
+            - ~/.yarn-cache
+            - ./node_modules
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - ./
+
+  deploy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - add_ssh_keys:
+          fingerprints:
+            - 'xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx'
+      - run:
+          name: Configure git
+          command: |
+            ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+            git config --global user.email "xeroxinteractive-circleci@xerox.com"
+            git config --global user.name "CircleCI"
+      - run:
+          name: Deploy package to npm
+          command: yarn deploy
+
+workflows:
+  version: 2
+  install_build_deploy:
+    jobs:
+      - install_build
+      - deploy:
+          context: npm
+          requires:
+            - install_build
+          filters:
+            branches:
+              only:
+                - master
