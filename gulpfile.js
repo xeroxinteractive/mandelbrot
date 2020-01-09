@@ -24,7 +24,10 @@ gulp.task('lint:js', () =>
   gulp.src(['./src/**/*.js', './index.js']).pipe(eslint())
 );
 gulp.task('clean:js', () => del(['./dist/js']));
-gulp.task('js', gulp.series(gulp.parallel('clean:js', 'lint:js'), compileJS));
+gulp.task(
+  'js',
+  gulp.series(gulp.parallel('clean:js', 'lint:js'), () => compileJS())
+);
 gulp.task('js:watch', () => compileJS(true));
 
 //
