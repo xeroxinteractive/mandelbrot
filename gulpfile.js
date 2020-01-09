@@ -42,7 +42,7 @@ gulp.task(
   'css',
   gulp.series('lint:sass', () =>
     gulp
-      .src('./assets/scss/sierpinski.scss')
+      .src('./assets/scss/theme.scss')
 
       .pipe(sourcemaps.init())
       .pipe(sassGlob())
@@ -112,7 +112,7 @@ gulp.task('watch', gulp.parallel('css:watch', 'js:watch', 'img:watch'));
 // Utils
 //
 function compileJS(watch) {
-  let bundler = browserify('./assets/js/sierpinski.js', {
+  let bundler = browserify('./assets/js/theme.js', {
     debug: true,
   })
     .transform(eslintify)
@@ -135,7 +135,7 @@ function compileJS(watch) {
         console.error(err.message);
         // this.emit('end');
       })
-      .pipe(source('sierpinski.js'))
+      .pipe(source('theme.js'))
       .pipe(buffer())
       .pipe(sourcemaps.init({ loadMaps: true }))
       .pipe(uglify())
@@ -151,14 +151,14 @@ function compileJS(watch) {
 //
 const fractal = (module.exports = require('@frctl/fractal').create());
 
-fractal.set('project.title', 'Sierpinski Test');
+fractal.set('project.title', 'Fractal Theme Test');
 fractal.set('project.author', 'Andrew Leedham');
 fractal.docs.set('path', `${__dirname}/test/docs`); // location of the documentation directory.
 fractal.components.set('path', `${__dirname}/test/components`); // location of the component directory.
 
-const sierpinski = require('./')();
+const xeroxTheme = require('./')();
 
-fractal.web.theme(sierpinski);
+fractal.web.theme(xeroxTheme);
 
 const logger = fractal.cli.console;
 

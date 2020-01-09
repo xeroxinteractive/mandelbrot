@@ -1,4 +1,4 @@
-# @xerox/sierpinski
+# @xerox/fractal-theme
 
 > A web UI theme for Fractal built by Xerox. Based on the [default mandelbrot theme](https://github.com/frctl/mandelbrot).
 
@@ -11,18 +11,18 @@
 
 ## Installation
 ```bash
-yarn add @xerox/sierpinski --dev
+yarn add @xerox/fractal-theme --dev
 # or
-npm install @xerox/sierpinski --save-dev
+npm install @xerox/fractal-theme --save-dev
 ```
 
 ## Usage
 See [Configuring themes](https://fractal.build/guide/customisation/web-themes.html#configuring-themes).
 ```javascript
 // fractal.js
-const sierpinski = require('@xerox/sierpinski');
+const xeroxTheme = require('@xerox/fractal-theme');
 
-const myCustomisedTheme = sierpinski({
+const myCustomisedTheme = xeroxTheme({
     panels: ['html', 'info', 'resources']
 });
 
@@ -35,15 +35,15 @@ fractal.web.theme(myCustomisedTheme);
 
 [license]: ./LICENSE
 [changelog]: ./CHANGELOG.md
-[issues]: https://github.com/xeroxinteractive/sierpinski/issues
+[issues]: https://github.com/xeroxinteractive/fractal-theme/issues
 
-[circleci-badge]: https://flat.badgen.net/circleci/github/xeroxinteractive/sierpinski/master
-[circleci-link]: https://circleci.com/gh/xeroxinteractive/sierpinski/tree/master
+[circleci-badge]: https://flat.badgen.net/circleci/github/xeroxinteractive/fractal-theme/master
+[circleci-link]: https://circleci.com/gh/xeroxinteractive/fractal-theme/tree/master
 
-[npm-badge]: https://flat.badgen.net/npm/v/@xerox/sierpinski?color=cyan
-[npm-link]: https://www.npmjs.com/package/@xerox/sierpinski
+[npm-badge]: https://flat.badgen.net/npm/v/@xerox/fractal-theme?color=cyan
+[npm-link]: https://www.npmjs.com/package/@xerox/fractal-theme
 
-[license-badge]: https://flat.badgen.net/npm/license/@xerox/sierpinski
+[license-badge]: https://flat.badgen.net/npm/license/@xerox/fractal-theme
 
 [commit-style-badge]: https://flat.badgen.net/badge/commit%20style/angular/purple
 [commit-style-link]: https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines
@@ -51,5 +51,5 @@ fractal.web.theme(myCustomisedTheme);
 [semantic-release-badge]: https://flat.badgen.net/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80/semantic%20release/e10079
 [semantic-release-link]: https://github.com/semantic-release/semantic-release
 
-[dependabot-badge]: https://flat.badgen.net/dependabot/xeroxinteractive/sierpinski?icon=dependabot
+[dependabot-badge]: https://flat.badgen.net/dependabot/xeroxinteractive/fractal-theme?icon=dependabot
 [dependabot-link]: https://dependabot.com

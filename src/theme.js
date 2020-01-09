@@ -13,7 +13,7 @@ module.exports = function(options) {
     scripts: 'default',
     format: 'json',
     static: {
-      mount: 'themes/sierpinski',
+      mount: 'themes/xerox-fractal-theme',
     },
     version: packageJSON.version,
     favicon: null,
@@ -33,13 +33,13 @@ module.exports = function(options) {
     .concat(config.stylesheet)
     .filter((url) => url)
     .map((url) =>
-      url === 'default' ? `/${config.static.mount}/css/sierpinski.css` : url
+      url === 'default' ? `/${config.static.mount}/css/theme.css` : url
     );
   config.scripts = []
     .concat(config.scripts)
     .filter((url) => url)
     .map((url) =>
-      url === 'default' ? `/${config.static.mount}/js/sierpinski.js` : url
+      url === 'default' ? `/${config.static.mount}/js/theme.js` : url
     );
   config.favicon = config.favicon || `/${config.static.mount}/favicon.ico`;
 
