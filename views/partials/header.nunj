@@ -4,7 +4,7 @@
         {% include 'icons/close-nav.svg' %}
         {% include 'icons/open-nav.svg' %}
     </button>
-    <a href="{{ path('/') }}" class="Header-title" data-pjax>{% include 'icons/logo.svg' %} <span>Framework</span></a>
+    <a href="{{ path('/') }}" class="Header-title" data-pjax><img src="{{ path(frctl.theme.get('logo')) }}" alt="{{ frctl.get('project.title') }}"/> <span>{{ frctl.get('project.title') }}</span></a>
   </div>
   <div class="Header-end">
     <button class="Header-button Header-actionMobile" data-action="action-mobile" title="View Mobile">

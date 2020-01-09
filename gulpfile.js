@@ -91,10 +91,8 @@ gulp.task('img:clean', () => del(['./dist/img']));
 
 gulp.task(
   'img',
-  gulp.series(
-    'img:clean',
-    () => gulp.src('./assets/img/**/*').pipe(gulp.dest('./dist/img')),
-    () => gulp.src('./assets/favicon.ico').pipe(gulp.dest('./dist'))
+  gulp.series('img:clean', () =>
+    gulp.src('./assets/img/**/*').pipe(gulp.dest('./dist/img'))
   )
 );
 

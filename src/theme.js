@@ -17,6 +17,7 @@ module.exports = function(options) {
     },
     version: packageJSON.version,
     favicon: null,
+    logo: 'http://acmelogos.com/images/logo-5.svg',
   });
 
   config.panels = config.panels || [
