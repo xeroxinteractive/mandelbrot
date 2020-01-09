@@ -163,3 +163,40 @@
     margin: 1em 0;
   }
 }
+
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -0.5rem;
+}
+
+.swatch {
+  width: 13rem;
+  height: 12rem;
+  display: flex;
+  margin: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 0 0.1rem;
+  overflow: hidden;
+}
+
+.swatch figcaption {
+  background: #f6f6f6;
+  align-self: flex-end;
+  width: 100%;
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 0 0.1rem;
+}
+
+.swatch figcaption pre {
+  background-color: transparent;
+  padding: 0;
+  overflow: visible;
+}
+
+.swatch figcaption pre.sass {
+  color: black;
+}
+
+.swatch figcaption pre.hex {
+  color: rgba(0, 0, 0, 0.4);
+}
