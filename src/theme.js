@@ -16,7 +16,6 @@ module.exports = function(options) {
       mount: 'themes/xerox-fractal-theme',
     },
     version: packageJSON.version,
-    favicon: null,
     logo: 'http://acmelogos.com/images/logo-5.svg',
   });
 
@@ -42,9 +41,6 @@ module.exports = function(options) {
     .map((url) =>
       url === 'default' ? `/${config.static.mount}/js/theme.js` : url
     );
-  config.favicon = config.favicon || `/${config.static.mount}/favicon.ico`;
-
-  const assetSourceName = 'components';
 
   const theme = new Theme(Path.join(__dirname, '..', 'views'), config);
 
