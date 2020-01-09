@@ -4,7 +4,7 @@
 
 [![circleci status][circleci-badge]][circleci-link]
 [![npm package][npm-badge]][npm-link]
-[![license MIT][license-badge]][license]
+[![license Apache 2.0][license-badge]][license]
 [![commit style angular][commit-style-badge]][commit-style-link]
 [![semantic-release][semantic-release-badge]][semantic-release-link]
 [![Dependabot Status][dependabot-badge]][dependabot-link]
