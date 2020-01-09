@@ -20,93 +20,93 @@ const del = require('del');
 //
 // JS
 //
-gulp.task('lint:js', function() {
-  return gulp.src(['./src/**/*.js', './index.js']).pipe(eslint());
-});
-gulp.task('js', ['clean:js', 'lint:js'], () => compileJS());
+gulp.task('lint:js', () =>
+  gulp.src(['./src/**/*.js', './index.js']).pipe(eslint())
+);
+gulp.task('clean:js', () => del(['./dist/js']));
+gulp.task('js', gulp.series(gulp.parallel('clean:js', 'lint:js'), compileJS));
 gulp.task('js:watch', () => compileJS(true));
-
-gulp.task('clean:js', function() {
-  return del(['./dist/js']);
-});
 
 //
 // Styles
 //
-gulp.task('lint:sass', function() {
-  return gulp.src('./assets/scss/**/*.scss').pipe(
+gulp.task('lint:sass', () =>
+  gulp.src('./assets/scss/**/*.scss').pipe(
     stylelint({
       reporters: [{ formatter: 'string', console: true }],
     })
-  );
-});
+  )
+);
 
-gulp.task('css', ['lint:sass'], function() {
-  return gulp
-    .src('./assets/scss/sierpinski.scss')
+gulp.task(
+  'css',
+  gulp.series('lint:sass', () =>
+    gulp
+      .src('./assets/scss/sierpinski.scss')
 
-    .pipe(sourcemaps.init())
-    .pipe(sassGlob())
-    .pipe(
-      sass({
-        includePaths: 'node_modules',
-      }).on('error', sass.logError)
-    )
-    .pipe(
-      autoprefixer({
-        browsers: ['last 5 versions'],
-      })
-    )
-    .pipe(prettier())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./dist/css'));
-});
+      .pipe(sourcemaps.init())
+      .pipe(sassGlob())
+      .pipe(
+        sass({
+          includePaths: 'node_modules',
+        }).on('error', sass.logError)
+      )
+      .pipe(
+        autoprefixer({
+          browsers: ['last 5 versions'],
+        })
+      )
+      .pipe(prettier())
+      .pipe(sourcemaps.write())
+      .pipe(gulp.dest('./dist/css'))
+  )
+);
 
-gulp.task('css:clean', function() {
-  return del(['./dist/css']);
-});
+gulp.task('css:clean', () => del(['./dist/css']));
 
-gulp.task('css:watch', function() {
-  gulp.watch('./assets/scss/**/*.scss', ['css']);
+gulp.task('css:watch', () => {
+  gulp.watch('./assets/scss/**/*.scss', gulp.series('css'));
 });
 
 //
 // Fonts
 //
-gulp.task('fonts', ['fonts:clean'], function() {
-  gulp.src('./assets/fonts/**/*').pipe(gulp.dest('./dist/fonts'));
-});
+gulp.task('fonts:clean', () => del(['./dist/fonts']));
 
-gulp.task('fonts:clean', function() {
-  return del(['./dist/fonts']);
-});
+gulp.task(
+  'fonts',
+  gulp.series('fonts:clean', () =>
+    gulp.src('./assets/fonts/**/*').pipe(gulp.dest('./dist/fonts'))
+  )
+);
 
-gulp.task('fonts:watch', function() {
-  gulp.watch('./assets/fonts/**/*', ['fonts']);
+gulp.task('fonts:watch', () => {
+  gulp.watch('./assets/fonts/**/*', gulp.series('fonts'));
 });
 
 //
 // Images
 //
-gulp.task('img', ['img:clean'], function() {
-  gulp.src('./assets/img/**/*').pipe(gulp.dest('./dist/img'));
-  gulp.src('./assets/favicon.ico').pipe(gulp.dest('./dist'));
-});
+gulp.task('img:clean', () => del(['./dist/img']));
 
-gulp.task('img:clean', function() {
-  return del(['./dist/img']);
-});
+gulp.task(
+  'img',
+  gulp.series(
+    'img:clean',
+    () => gulp.src('./assets/img/**/*').pipe(gulp.dest('./dist/img')),
+    () => gulp.src('./assets/favicon.ico').pipe(gulp.dest('./dist'))
+  )
+);
 
-gulp.task('img:watch', function() {
-  gulp.watch('./assets/img/**/*', ['img']);
+gulp.task('img:watch', () => {
+  gulp.watch('./assets/img/**/*', gulp.series('img'));
 });
 
 //
 // Task sets
 //
-gulp.task('watch', ['default', 'css:watch', 'js:watch', 'img:watch']);
-
-gulp.task('default', ['fonts', 'css', 'js', 'img']);
+gulp.task('default', gulp.parallel('fonts', 'css', 'js', 'img'));
+gulp.task('watch', gulp.parallel('css:watch', 'js:watch', 'img:watch'));
 
 //
 // Utils
@@ -129,7 +129,7 @@ function compileJS(watch) {
   }
 
   function rebundle() {
-    const bundle = bundler
+    return bundler
       .bundle()
       .on('error', function(err) {
         console.error(err.message);
@@ -137,17 +137,13 @@ function compileJS(watch) {
       })
       .pipe(source('sierpinski.js'))
       .pipe(buffer())
-      .pipe(uglify());
-
-    bundle
       .pipe(sourcemaps.init({ loadMaps: true }))
+      .pipe(uglify())
       .pipe(sourcemaps.write('./'))
       .pipe(gulp.dest('./dist/js'));
-
-    return bundle;
   }
 
-  rebundle();
+  return rebundle();
 }
 
 //
@@ -166,12 +162,18 @@ fractal.web.theme(sierpinski);
 
 const logger = fractal.cli.console;
 
-gulp.task('fractal:start', ['watch'], function() {
-  const server = fractal.web.server({
-    sync: true,
-  });
-  server.on('error', (err) => logger.error(err.message));
-  return server.start().then(() => {
-    logger.success(`Fractal server is now running at ${server.url}`);
-  });
-});
+gulp.task(
+  'fractal:start',
+  gulp.series(
+    'default',
+    gulp.parallel('watch', function() {
+      const server = fractal.web.server({
+        sync: true,
+      });
+      server.on('error', (err) => logger.error(err.message));
+      return server.start().then(() => {
+        logger.success(`Fractal server is now running at ${server.url}`);
+      });
+    })
+  )
+);
