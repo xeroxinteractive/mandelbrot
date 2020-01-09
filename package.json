@@ -63,7 +63,7 @@
     "highlight.js": "^9.1.0",
     "jquery": "^2.2.1",
     "jquery-pjax": "git+https://github.com/defunkt/jquery-pjax.git",
-    "jquery-resizable-dom": "^0.16.0",
+    "jquery-resizable-dom": "^0.35.0",
     "node-sass": "^4.13.0",
     "normalize.css": "^4.1.1",
     "prettier": "^1.19.1",

@@ -7431,15 +7431,22 @@ jquery-mousewheel@~3.1.13:
   version "2.0.1"
   resolved "git+https://github.com/defunkt/jquery-pjax.git#153262eda33e31119eabb97cd5f14365580a3b35"
 
-jquery-resizable-dom@^0.16.0:
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/jquery-resizable-dom/-/jquery-resizable-dom-0.16.0.tgz#bcf92d02cc80071fa057ae27f48a715b95e2fe41"
-  integrity sha1-vPktAsyABx+gV64n9IpxW5Xi/kE=
+jquery-resizable-dom@^0.35.0:
+  version "0.35.0"
+  resolved "https://registry.yarnpkg.com/jquery-resizable-dom/-/jquery-resizable-dom-0.35.0.tgz#b562e5768c92fbcbd7544e30b6f3b6950169b020"
+  integrity sha512-AbZsJ+aKJnoIYNT4dPy9om72L/j/z3hBCAHz9yO2Ifn60tAkEti3KJ4Exb98OV3P9R4Mst4E1YEFKzHrDPy/Nw==
+  dependencies:
+    jquery "^3.4.0"
 
 jquery@^2.2.1:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-2.2.4.tgz#2c89d6889b5eac522a7eea32c14521559c6cbf02"
   integrity sha1-LInWiJterFIqfuoywUUhVZxsvwI=
+
+jquery@^3.4.0:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
+  integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
 
 js-base64@^2.1.8, js-base64@^2.1.9:
   version "2.5.1"
