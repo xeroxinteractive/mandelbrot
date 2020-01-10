@@ -69,7 +69,7 @@
     "prettier": "^1.19.1",
     "sass-mq": "^3.2.6",
     "select2": "4.0.3",
-    "semantic-release": "^15.14.0",
+    "semantic-release": "^16.0.0",
     "stylelint": "^12.0.1",
     "stylelint-config-standard": "^7.0.0",
     "vinyl-buffer": "^1.0.1",
