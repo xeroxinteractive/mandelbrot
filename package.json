@@ -36,10 +36,14 @@
   "publishConfig": {
     "access": "public"
   },
+  "browserslist": [
+    "extends @xerox/browserslist-config"
+  ],
   "peerDependencies": {
     "@frctl/fractal": ">= 1.1.0-alpha.0 < 2"
   },
   "devDependencies": {
+    "@xerox/browserslist-config": "^1.0.1",
     "@xerox/commitlint-config": "^2.1.0",
     "@xerox/eslint-config": "^2.2.1",
     "@xerox/prettier-config": "^2.1.0",
@@ -61,9 +65,9 @@
     "gulp-stylelint": "^11.0.0",
     "gulp-uglify": "^3.0.2",
     "highlight.js": "^9.1.0",
-    "jquery": "^2.2.1",
-    "jquery-pjax": "git+https://github.com/defunkt/jquery-pjax.git",
-    "jquery-resizable-dom": "^0.16.0",
+    "jquery": "^3.4.1",
+    "jquery-pjax": "^2.0.1",
+    "jquery-resizable-dom": "^0.35.0",
     "node-sass": "^4.13.0",
     "normalize.css": "^4.1.1",
     "prettier": "^1.19.1",
@@ -80,5 +84,15 @@
     "@frctl/fractal": "^1.2.1",
     "js-beautify": "^1.6.2",
     "lodash": "^4.12.0"
+  },
+  "resolutions": {
+    "browserslist": ">=4.8",
+    "lodash": ">=4.17.11",
+    "braces": ">=2.3.1",
+    "marked": ">=0.7.0",
+    "uglify-js": ">=2.6.0",
+    "js-yaml": ">=3.13.1",
+    "fstream": ">=1.0.12",
+    "tar": ">=2.2.2"
   }
 }

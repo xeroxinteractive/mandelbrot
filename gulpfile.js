@@ -54,11 +54,7 @@ gulp.task(
           includePaths: 'node_modules',
         }).on('error', sass.logError)
       )
-      .pipe(
-        autoprefixer({
-          browsers: ['last 5 versions'],
-        })
-      )
+      .pipe(autoprefixer())
       .pipe(prettier())
       .pipe(sourcemaps.write())
       .pipe(gulp.dest('./dist/css'))

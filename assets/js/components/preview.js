@@ -45,7 +45,7 @@ class Preview {
     });
 
     this._resizer.resizable({
-      handleSelector: this._handle,
+      handleSelector: '[data-role="resize-handle"]',
       resizeHeight: false,
       onDragStart: () => {
         this._el.addClass('is-resizing');

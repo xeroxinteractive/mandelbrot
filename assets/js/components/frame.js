@@ -69,7 +69,7 @@ module.exports = function(element) {
   });
 
   sidebar.resizable({
-    handleSelector: handle,
+    handleSelector: '[data-role="frame-resize-handle"]',
     resizeHeight: false,
     onDragStart: (e) => {
       el.addClass('is-resizing');
