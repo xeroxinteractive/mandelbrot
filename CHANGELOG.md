@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/xeroxinteractive/fractal-theme/compare/v1.3.0...v1.3.1) (2020-01-13)
+
+
+### Bug Fixes
+
+* resizable selectors ([3aa3174](https://github.com/xeroxinteractive/fractal-theme/commit/3aa3174d9b5c2dcc82fda98dd93ce0d2366cb220))
+
 # [1.3.0](https://github.com/xeroxinteractive/fractal-theme/compare/v1.2.1...v1.3.0) (2020-01-09)
 
 
