@@ -53,10 +53,14 @@ class Preview {
         events.trigger('start-dragging');
       },
       onDragEnd: () => {
-        if (this._resizer.outerWidth() === this._el.outerWidth()) {
+        const outer = this._resizer.outerWidth();
+        if (outer === this._el.outerWidth()) {
           this._resizer.css('width', '100%');
         }
-        storage.set(`preview.width`, this._resizer.outerWidth());
+        storage.set(
+          `preview.width`,
+          typeof outer === 'undefined' ? null : outer
+        );
         this._el.removeClass('is-resizing');
         this.enableEvents();
         events.trigger('end-dragging');

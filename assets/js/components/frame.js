@@ -34,7 +34,7 @@ module.exports = function(element) {
   let javascriptState = storage.get('frame.javascript', true);
   let directionState = storage.get('frame.direction', 'ltr');
   const scrollPos = storage.get(`frame.scrollPos`, 0);
-  let previewWidth = storage.get('preview.width', undefined);
+  let previewWidth = storage.get('preview.width', null);
   let dragOccuring = false;
   let isInitialClose = false;
   let handleClicks = 0;
@@ -212,7 +212,10 @@ module.exports = function(element) {
         width: `${width}px`,
         transition: initial ? 'none' : '0.5s ease width',
       });
-      storage.set('preview.width', previewWidth);
+      storage.set(
+        'preview.width',
+        typeof previewWidth === 'undefined' ? null : previewWidth
+      );
     }
   }
 
