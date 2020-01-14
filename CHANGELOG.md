@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/xeroxinteractive/fractal-theme/compare/v1.3.1...v1.3.2) (2020-01-14)
+
+
+### Bug Fixes
+
+* preview.width being undefined ([6e8ba18](https://github.com/xeroxinteractive/fractal-theme/commit/6e8ba182eafd4de36ba7394c85069b712f8b9458))
+
 ## [1.3.1](https://github.com/xeroxinteractive/fractal-theme/compare/v1.3.0...v1.3.1) (2020-01-13)
 
 
