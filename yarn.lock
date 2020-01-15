@@ -1051,11 +1051,6 @@ ajv@^6.10.0, ajv@^6.10.2, ajv@^6.5.5, ajv@^6.9.1:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-almond@~0.3.1:
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/almond/-/almond-0.3.3.tgz#a0e7c95ac7624d6417b4494b1e68bff693168a20"
-  integrity sha1-oOfJWsdiTWQXtElLHmi/9pMWiiA=
-
 amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
@@ -7209,11 +7204,6 @@ java-properties@^1.0.0:
   resolved "https://registry.yarnpkg.com/java-properties/-/java-properties-1.0.2.tgz#ccd1fa73907438a5b5c38982269d0e771fe78211"
   integrity sha512-qjdpeo2yKlYTH7nFdK0vbZWuTCesk4o63v5iVOlhMQPfuIZQfW/HI35SjfhA+4qpg36rnFSvUK5b1m+ckIblQQ==
 
-jquery-mousewheel@~3.1.13:
-  version "3.1.13"
-  resolved "https://registry.yarnpkg.com/jquery-mousewheel/-/jquery-mousewheel-3.1.13.tgz#06f0335f16e353a695e7206bf50503cb523a6ee5"
-  integrity sha1-BvAzXxbjU6aV5yBr9QUDy1I6buU=
-
 jquery-pjax@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/jquery-pjax/-/jquery-pjax-2.0.1.tgz#6b3a1ba16e644e624bdcfe72eb6b3d96a846f5f2"
@@ -11310,13 +11300,10 @@ secure-keys@^1.0.0:
   resolved "https://registry.yarnpkg.com/secure-keys/-/secure-keys-1.0.0.tgz#f0c82d98a3b139a8776a8808050b824431087fca"
   integrity sha1-8MgtmKOxOah3aogIBQuCRDEIf8o=
 
-select2@4.0.3:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/select2/-/select2-4.0.3.tgz#207733fe91eacb9cb1a13f12463401f472449e0f"
-  integrity sha1-IHcz/pHqy5yxoT8SRjQB9HJEng8=
-  dependencies:
-    almond "~0.3.1"
-    jquery-mousewheel "~3.1.13"
+select2@4.0.12:
+  version "4.0.12"
+  resolved "https://registry.yarnpkg.com/select2/-/select2-4.0.12.tgz#9c0492d4d06948f2bd079f6e14718a41c7eaa60e"
+  integrity sha512-mbXC05AvjCboZcRlgJqN4mlI2qmqshpRC76sKNAdxS1lPLOh2m/NTyfL6xsvGoY6eIhjaya4dbumN99MudVQ2w==
 
 semantic-release-slack-bot@^1.4.0:
   version "1.4.1"
