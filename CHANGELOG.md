@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/xeroxinteractive/fractal-theme/compare/v1.3.2...v1.3.3) (2020-01-15)
+
+
+### Bug Fixes
+
+* cross-browser iframe quirks ([4c3e53a](https://github.com/xeroxinteractive/fractal-theme/commit/4c3e53a562bd0c03d5dc90b157ac8a92028328b8))
+
 ## [1.3.2](https://github.com/xeroxinteractive/fractal-theme/compare/v1.3.1...v1.3.2) (2020-01-14)
 
 
