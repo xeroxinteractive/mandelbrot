@@ -11,7 +11,7 @@
             <pre>
 {% if variant.hasContext() | async -%}
 {{ '<span class="hljs-comment">/* ' + variant.label + ' */</span>' }}
-{{ variant.getResolvedContext()  | async | format(frctl.theme.get('format')) | highlight(frctl.theme.get('format')) }}
+{{ variant.getResolvedContext()  | async | prettier(frctl.theme.get('format')) | format(frctl.theme.get('format')) | highlight(frctl.theme.get('format')) }}
 {%- else -%}
     {{ '<span class="hljs-comment">/* ' + variant.label + ': No context defined */</span>' }}
 {%- endif %}
