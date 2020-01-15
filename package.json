@@ -72,7 +72,7 @@
     "normalize.css": "^8.0.1",
     "prettier": "^1.19.1",
     "sass-mq": "^5.0.1",
-    "select2": "4.0.3",
+    "select2": "4.0.12",
     "semantic-release": "^15.14.0",
     "stylelint": "^12.0.1",
     "stylelint-config-standard": "^7.0.0",
