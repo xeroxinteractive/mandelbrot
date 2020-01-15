@@ -46,7 +46,7 @@ module.exports = function(element) {
     closeSidebar();
   }
 
-  toggleJavaScript(javascriptState);
+  toggleJavaScript(javascriptState, true);
 
   toggleDirection(directionState);
 
@@ -164,17 +164,23 @@ module.exports = function(element) {
     storage.set(`frame.sidebar`, width);
   }
 
-  function toggleJavaScript(state = !javascriptState) {
+  function toggleJavaScript(state = !javascriptState, initial = false) {
     const iframe = document.querySelector('.Preview-iframe');
     if (iframe) {
       javascriptState = state;
       if (javascriptState) {
-        iframe.sandbox =
-          'allow-same-origin allow-scripts allow-forms allow-modals';
+        iframe.removeAttribute('sandbox');
       } else {
         iframe.sandbox = 'allow-same-origin allow-forms allow-modals';
       }
-      iframe.contentWindow.location.reload();
+      if (initial) {
+        iframe.src = iframe.src;
+      } else {
+        const frame = window.frames[0];
+        if (frame) {
+          frame.location.reload();
+        }
+      }
       if (javascriptState) {
         el.removeClass('javascript-disabled');
       } else {
