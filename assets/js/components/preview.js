@@ -3,16 +3,14 @@
 const $ = global.jQuery;
 const storage = require('../storage');
 const events = require('../events');
+const { updateHash } = require('../utils');
 const resizeable = require('jquery-resizable-dom/dist/jquery-resizable.js');
-
-const hashRegex = /#[^?]+/;
 
 class Preview {
   constructor(el) {
     this._el = $(el);
     this._id = this._el[0].id;
     this._handle = this._el.find('[data-role="resize-handle"]');
-    this._iframe = this._el.find('[data-role="window"]');
     this._resizer = this._el.children('[data-role="resizer"]');
     this._init();
   }
@@ -68,21 +66,19 @@ class Preview {
       resizeWidthFrom: dir === 'rtl' ? 'left' : 'right',
     });
 
-    this.updateHash = this.updateHash.bind(this);
-    this.updateHash();
-    window.addEventListener('hashchange', () => this.updateHash());
-  }
-
-  updateHash() {
-    const iframe = this._iframe[0];
+    const iframe = window.frames[0];
     if (iframe) {
-      if (iframe.src.match(hashRegex)) {
-        iframe.src = iframe.src.replace(hashRegex, window.location.hash);
+      if (
+        iframe.location.href !== 'about:blank' &&
+        iframe.document.readyState === 'complete'
+      ) {
+        updateHash();
       } else {
-        iframe.src = iframe.src + window.location.hash;
-        iframe.contentWindow.location.reload();
+        iframe.addEventListener('load', updateHash);
       }
     }
+
+    window.addEventListener('hashchange', updateHash);
   }
 
   disableEvents() {

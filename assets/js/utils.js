@@ -23,4 +23,11 @@ module.exports = {
   isSmallScreen() {
     return $(document).width() < config.breakpoints.navCollapse;
   },
+
+  updateHash() {
+    const iframe = window.frames[0];
+    if (iframe && window.location.hash) {
+      iframe.location.hash = window.location.hash;
+    }
+  },
 };
