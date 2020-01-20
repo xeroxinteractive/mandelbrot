@@ -5,6 +5,8 @@ const select = require('select2');
 const storage = require('../storage');
 const events = require('../events');
 
+select(window, $);
+
 class Browser {
   constructor(el) {
     const self = this;
