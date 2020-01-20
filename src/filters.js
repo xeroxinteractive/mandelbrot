@@ -2,7 +2,8 @@
 
 const _ = require('lodash');
 const Path = require('path');
-const beautifyHTML = require('js-beautify').html;
+const prettierConfig = require('@xerox/prettier-config');
+const prettier = require('prettier');
 
 module.exports = function(theme, env, app) {
   env.engine.addFilter('url', function(item) {
@@ -21,22 +22,26 @@ module.exports = function(theme, env, app) {
     throw new Error(`Cannot generate URL for ${item}`);
   });
 
-  env.engine.addFilter('beautify', function(str) {
-    const defaults = {
-      indent_size: 4,
-      preserve_newlines: true,
-      max_preserve_newlines: 1,
-    };
+  env.engine.addFilter('prettier', function(str, parser) {
+    try {
+      let prettierOptions = theme.getOption('prettier') || {};
 
-    let beautifyOptions = theme.getOption('beautify') || {};
+      if (typeof prettierOptions === 'function') {
+        return prettierOptions(str);
+      }
 
-    if (typeof beautifyOptions === 'function') {
-      return beautifyOptions(str);
+      prettierOptions = _.merge(
+        {},
+        { parser: parser.toLowerCase() },
+        prettierConfig,
+        prettierOptions
+      );
+
+      return prettier.format(str.toString(), prettierOptions);
+    } catch (error) {
+      console.warn(error);
+      return str;
     }
-
-    beautifyOptions = _.merge({}, defaults, beautifyOptions);
-
-    return beautifyHTML(str, beautifyOptions);
   });
 
   env.engine.addFilter('resourceUrl', function(str) {

@@ -4,7 +4,7 @@
   font-feature-settings: 'liga', 'dlig', 'kern', 'onum';
   hanging-punctuation: first;
 
-  > *:not(:last-child) {
+  > *:not(:last-child):not(hr) {
     margin-bottom: 0.75em;
   }
 
@@ -164,39 +164,48 @@
   }
 }
 
-.swatches {
+.grid {
   display: flex;
   flex-wrap: wrap;
   margin: -0.5rem;
 }
 
-.swatch {
-  width: 13rem;
+.item {
+  width: 14rem;
   height: 12rem;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
   margin: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.25) 0 0 0.1rem;
   overflow: hidden;
+
+  svg {
+    width: 8rem;
+    height: 8rem;
+    padding: 0 !important;
+    color: black;
+  }
 }
 
-.swatch figcaption {
+.item figcaption {
   background: #f6f6f6;
-  align-self: flex-end;
   width: 100%;
   padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.25) 0 0 0.1rem;
 }
 
-.swatch figcaption pre {
+.item figcaption pre {
   background-color: transparent;
   padding: 0;
-  overflow: visible;
+  overflow: scroll;
 }
 
-.swatch figcaption pre.sass {
+.item figcaption pre.title {
   color: black;
 }
 
-.swatch figcaption pre.hex {
+.item figcaption pre.subtitle {
   color: rgba(0, 0, 0, 0.4);
 }

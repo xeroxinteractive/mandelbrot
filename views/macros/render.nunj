@@ -3,6 +3,6 @@
 {% set renderError %}<!-- Error rendering component: {{ error.message }} -->{% endset %}
 {{ renderError | highlight('html') }}
 {% else %}
-{{ rendered | beautify | highlight('html') }}
+{{ rendered | prettier('html') | highlight('html') }}
 {% endif %}
 {% endmacro %}
