@@ -1,3 +1,16 @@
+# [1.4.0](https://github.com/xeroxinteractive/fractal-theme/compare/v1.3.3...v1.4.0) (2020-01-20)
+
+
+### Bug Fixes
+
+* select2 error ([25a5637](https://github.com/xeroxinteractive/fractal-theme/commit/25a5637f8742873da3e2f402db1bfa114c2cc588))
+
+
+### Features
+
+* allow svg's in grid styling ([e504c19](https://github.com/xeroxinteractive/fractal-theme/commit/e504c19e207b82430d942c93805b8c724b8c9796))
+* replace js-beautify with prettier ([b01a56a](https://github.com/xeroxinteractive/fractal-theme/commit/b01a56a3a2364df70a57dc427d35b982a1d18cfd))
+
 ## [1.3.3](https://github.com/xeroxinteractive/fractal-theme/compare/v1.3.2...v1.3.3) (2020-01-15)
 
 
