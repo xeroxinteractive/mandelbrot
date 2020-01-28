@@ -70,7 +70,7 @@
     "node-sass": "^4.13.0",
     "normalize.css": "^8.0.1",
     "sass-mq": "^5.0.1",
-    "select2": "4.0.12",
+    "select2": "4.0.13",
     "semantic-release": "^15.14.0",
     "stylelint": "^13.0.0",
     "vinyl-buffer": "^1.0.1",
