@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/xeroxinteractive/fractal-theme/compare/v1.4.0...v1.5.0) (2020-02-05)
+
+
+### Features
+
+* fuzzy search ([33ee717](https://github.com/xeroxinteractive/fractal-theme/commit/33ee717fbdf073c9fe896569f7dca435ee12717e))
+
 # [1.4.0](https://github.com/xeroxinteractive/fractal-theme/compare/v1.3.3...v1.4.0) (2020-01-20)
 
 
