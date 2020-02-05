@@ -3,6 +3,7 @@
 const $ = global.jQuery;
 const utils = require('../utils');
 const storage = require('../storage');
+const fuzzy = require('fuzzy');
 
 const whitespaceRegex = /^\s*$/;
 
@@ -56,10 +57,8 @@ class Search {
       text:
         parent &&
         element
-          .children('.Tree-entityLink,.Tree-collectionLabel')
-          .text()
-          .trim()
-          .toLowerCase(),
+          .find('> .Tree-entityLink > span, > .Tree-collectionLabel > span')
+          .text(),
     };
 
     // Create sub trees for all the child tree items.
@@ -90,11 +89,21 @@ class Search {
     while (queue.length > 0) {
       let { item: current, showState } = queue.shift();
       let found;
+      current.element &&
+        current.element
+          .find('> .Tree-entityLink > span, > .Tree-collectionLabel > span')
+          .html(current.text);
       if (!invalidPhrase) {
         // Check if the current item text matches the phrase.
-        found = current.text && current.text.includes(phrase);
+        found =
+          current.text &&
+          fuzzy.match(phrase, current.text, { pre: '<b>', post: '</b>' });
         // If we have a match traverse all the way up showing each element.
         if (found) {
+          current.element &&
+            current.element
+              .find('> .Tree-entityLink > span,> .Tree-collectionLabel > span')
+              .html(found.rendered);
           navTree.expandAll(true);
           let parent = current.parent;
           while (parent) {
