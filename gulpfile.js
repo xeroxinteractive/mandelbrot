@@ -114,7 +114,15 @@ function compileJS(watch) {
   })
     .transform(eslintify)
     .transform(babel, {
-      presets: ['es2015'],
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            useBuiltIns: 'usage',
+            corejs: 3,
+          },
+        ],
+      ],
     });
 
   if (watch) {
