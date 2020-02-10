@@ -77,7 +77,10 @@ class Search {
    */
   updateTree(tree, rawPhrase) {
     const { navTree, searchTree } = tree;
-    const phrase = rawPhrase.trim().toLowerCase();
+    const phrase = rawPhrase
+      .trim()
+      .toLowerCase()
+      .replace(/[-_]/g, ' ');
     // Check if the phrase is just whitespace.
     const invalidPhrase = whitespaceRegex.test(phrase);
     // Reset the nav tree state if we are not performing a search.
