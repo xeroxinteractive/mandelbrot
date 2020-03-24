@@ -34,14 +34,14 @@ if (frctl.env === 'server') {
         timeout: 10000,
       }
     )
-    .on('pjax:start', function(e, xhr, options) {
+    .on('pjax:start', function (e, xhr, options) {
       if (utils.isSmallScreen()) {
         frame.closeSidebar();
       }
       frame.startLoad();
       events.trigger('main-content-preload', options.url);
     })
-    .on('pjax:end', function() {
+    .on('pjax:end', function () {
       events.trigger('main-content-loaded');
       frame.endLoad();
     });
@@ -50,7 +50,7 @@ if (frctl.env === 'server') {
 events.on('main-content-loaded', loadPen);
 
 function loadPen() {
-  setTimeout(function() {
+  setTimeout(function () {
     pens = $.map($('[data-behaviour="pen"]'), (p) => new Pen(p));
   }, 1);
 }
