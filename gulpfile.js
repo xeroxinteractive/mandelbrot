@@ -120,6 +120,7 @@ function compileJS(watch) {
           {
             useBuiltIns: 'usage',
             corejs: 3,
+            bugfixes: true,
           },
         ],
       ],
