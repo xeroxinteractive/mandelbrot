@@ -32,7 +32,7 @@ class Preview {
     this._handle.on('mousedown', (e) => {
       handleClicks++;
 
-      setTimeout(function() {
+      setTimeout(function () {
         handleClicks = 0;
       }, 400);
 

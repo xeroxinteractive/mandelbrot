@@ -6,7 +6,7 @@ const utils = require('../utils');
 const events = require('../events');
 const config = require('../config');
 
-module.exports = function(element) {
+module.exports = function (element) {
   const win = $(window);
   const doc = $(document);
   const el = $(element);
@@ -56,7 +56,7 @@ module.exports = function(element) {
 
   handle.on('mousedown', (e) => {
     handleClicks++;
-    setTimeout(function() {
+    setTimeout(function () {
       handleClicks = 0;
     }, 400);
     if (handleClicks === 2) {
@@ -104,13 +104,13 @@ module.exports = function(element) {
 
   events.on('toggle-sidebar', toggleSidebar);
   events.on('start-dragging', (e) => (dragOccuring = true));
-  events.on('end-dragging', function() {
-    setTimeout(function() {
+  events.on('end-dragging', function () {
+    setTimeout(function () {
       dragOccuring = false;
     }, 200);
   });
 
-  events.on('data-changed', function() {
+  events.on('data-changed', function () {
     // TODO: make this smarter?
     document.location.reload(true);
   });
@@ -236,11 +236,11 @@ module.exports = function(element) {
 
     openSidebar: openSidebar,
 
-    startLoad: function() {
+    startLoad: function () {
       main.addClass('is-loading');
     },
 
-    endLoad: function() {
+    endLoad: function () {
       main.removeClass('is-loading');
     },
   };
