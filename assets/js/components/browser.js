@@ -24,7 +24,7 @@ class Browser {
       .select2({
         minimumResultsForSearch: Infinity,
       })
-      .on('change', function() {
+      .on('change', function () {
         $(this)
           .closest('.FileBrowser')
           .find('[data-role="resource-preview"]')
@@ -53,10 +53,7 @@ class Browser {
       return false;
     });
     tabs.removeClass('is-active');
-    tabs
-      .eq(selectedIndex)
-      .find('a')
-      .trigger('click');
+    tabs.eq(selectedIndex).find('a').trigger('click');
   }
 
   _initFileSwitcher() {}

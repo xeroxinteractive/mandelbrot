@@ -39,7 +39,7 @@ class Pen {
       dblClick = false;
       handleClicks++;
 
-      setTimeout(function() {
+      setTimeout(function () {
         handleClicks = 0;
       }, 400);
 
