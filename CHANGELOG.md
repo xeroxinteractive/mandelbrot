@@ -1,3 +1,11 @@
+# [1.6.0](https://github.com/xeroxinteractive/fractal-theme/compare/v1.5.0...v1.6.0) (2020-03-24)
+
+
+### Features
+
+* enable new preset-env bugfixes option ([ce0f04c](https://github.com/xeroxinteractive/fractal-theme/commit/ce0f04cb0c54c6ade8fded75a2ef044d184ee41f))
+* **search:** replace - or _ with space ([7133981](https://github.com/xeroxinteractive/fractal-theme/commit/71339819e8eeb51d8e5052aefd80a33ef2e4d3cd))
+
 # [1.5.0](https://github.com/xeroxinteractive/fractal-theme/compare/v1.4.0...v1.5.0) (2020-02-05)
 
 
