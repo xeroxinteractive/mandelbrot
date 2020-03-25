@@ -1575,14 +1575,14 @@
     semantic-release-slack-bot "^1.4.0"
 
 "@xerox/stylelint-config@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@xerox/stylelint-config/-/stylelint-config-1.0.1.tgz#05ce132c6e4e577d46a8c5b9b96d805cd95608e0"
-  integrity sha512-5YGpS/Ic6SXzH3PNsANjJlYAnaN+aDjVq+YQ2F9hSEAIkcUvBkKC7JN+y22NUyMlUVI1T8Mpmi5fppZSXTkn+A==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@xerox/stylelint-config/-/stylelint-config-1.0.2.tgz#ddd12f66103653decdbfbbd8cf58a974a916c5ad"
+  integrity sha512-YT1aBGtCgpyUS1CbOvamjkg9ILWqsajX4KLW5jmYRw6yPC/Dr5kdeTJXV8tmkZ08fPnbQbqTQb/Cpt45HhTyaw==
   dependencies:
-    stylelint-config-prettier "^8.0.0"
+    stylelint-config-prettier "^8.0.1"
     stylelint-config-recommended "^3.0.0"
     stylelint-prettier "^1.1.2"
-    stylelint-scss "^3.13.0"
+    stylelint-scss "^3.16.0"
 
 "@yarnpkg/lockfile@^1.0.2":
   version "1.1.0"
@@ -7955,11 +7955,6 @@ lodash.get@^4.4.2:
   resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
   integrity sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
 
-lodash.isboolean@^3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/lodash.isboolean/-/lodash.isboolean-3.0.3.tgz#6c2e171db2a257cd96802fd43b01b20d5f5870f6"
-  integrity sha1-bC4XHbKiV82WgC/UOwGyDV9YcPY=
-
 lodash.isfinite@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/lodash.isfinite/-/lodash.isfinite-3.3.2.tgz#fb89b65a9a80281833f0b7478b3a5104f898ebb3"
@@ -7974,11 +7969,6 @@ lodash.isplainobject@^4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
   integrity sha1-fFJqUtibRcRcxpC4gWO+BJf1UMs=
-
-lodash.isregexp@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/lodash.isregexp/-/lodash.isregexp-4.0.1.tgz#e13e647b30cd559752a04cd912086faf7da1c30b"
-  integrity sha1-4T5kezDNVZdSoEzZEghvr32hwws=
 
 lodash.isstring@^4.0.1:
   version "4.0.1"
@@ -12574,10 +12564,10 @@ style-search@^0.1.0:
   resolved "https://registry.yarnpkg.com/style-search/-/style-search-0.1.0.tgz#7958c793e47e32e07d2b5cafe5c0bf8e12e77902"
   integrity sha1-eVjHk+R+MuB9K1yv5cC/jhLneQI=
 
-stylelint-config-prettier@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-prettier/-/stylelint-config-prettier-8.0.0.tgz#82b36b46fce60e92a1a32dd483ec4e3e857d3af3"
-  integrity sha512-C1FpThYJ7Y8omangeNngmp30PlO6uh3Au2b5w4Xw4xBTZy8aTx/R1AXcP9Ik0DJqINk7F7rwaKWqOLU/g7laGg==
+stylelint-config-prettier@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/stylelint-config-prettier/-/stylelint-config-prettier-8.0.1.tgz#ec7cdd7faabaff52ebfa56c28fed3d995ebb8cab"
+  integrity sha512-RcjNW7MUaNVqONhJH4+rtlAE3ow/9SsAM0YWV0Lgu3dbTKdWTa/pQXRdFWgoHWpzUKn+9oBKR5x8JdH+20wmgw==
 
 stylelint-config-recommended@^3.0.0:
   version "3.0.0"
@@ -12591,14 +12581,12 @@ stylelint-prettier@^1.1.2:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-stylelint-scss@^3.13.0:
-  version "3.13.0"
-  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-3.13.0.tgz#875c76e61d95333c4f0ae737a310be6f1d27d780"
-  integrity sha512-SaLnvQyndaPcsgVJsMh6zJ1uKVzkRZJx+Wg/stzoB1mTBdEmGketbHrGbMQNymzH/0mJ06zDSpeCDvNxqIJE5A==
+stylelint-scss@^3.16.0:
+  version "3.16.0"
+  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-3.16.0.tgz#6928fe57bcfc924110d09847c1f720472a9b7bd6"
+  integrity sha512-dAWs/gagdPYO3VDdvgRv5drRBMcWI4E//z3AXPAY1qYkSdXCEVJtEW+R9JtinG0U2rcJIu5XWaVddPQeaaufzw==
   dependencies:
-    lodash.isboolean "^3.0.3"
-    lodash.isregexp "^4.0.1"
-    lodash.isstring "^4.0.1"
+    lodash "^4.17.15"
     postcss-media-query-parser "^0.2.3"
     postcss-resolve-nested-selector "^0.1.1"
     postcss-selector-parser "^6.0.2"
