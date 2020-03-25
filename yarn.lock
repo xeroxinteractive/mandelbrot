@@ -1528,9 +1528,9 @@
     tsutils "^3.17.1"
 
 "@xerox/browserslist-config@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@xerox/browserslist-config/-/browserslist-config-1.0.1.tgz#a1b29ab8907384cf7406f9036f47e5f497955213"
-  integrity sha512-dXndBf8JeNgK1muVFSQNB0VkpaO77dnmlrNYdxO4+y1c+DqBNCYthLPpciLskbC5KE4JdJ7oN2QnTde/G6KU/w==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@xerox/browserslist-config/-/browserslist-config-1.0.2.tgz#b97b5208c92e8f52d3308f4e75330c9fdef64f37"
+  integrity sha512-8Sb/phuuLYvi1uvABOS2ucb/hs2zge3SV/EENfQRDaz++rVyFxV+wgs0F1pIEdbMEWvkyAk3ZOgnJUeK/J+RCA==
 
 "@xerox/commitlint-config@^2.1.0":
   version "2.1.0"
