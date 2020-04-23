@@ -24,10 +24,6 @@ module.exports = function (theme, env, app) {
 
   env.engine.addFilter('prettier', function (str, parser) {
     try {
-      if (typeof str === 'object') {
-        return str;
-      }
-
       let prettierOptions = theme.getOption('prettier') || {};
 
       if (typeof prettierOptions === 'function') {
