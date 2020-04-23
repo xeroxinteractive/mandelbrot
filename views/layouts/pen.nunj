@@ -24,6 +24,8 @@
 
 <div class="Pen" data-behaviour="pen" id="pen-{{ entity.id }}">
 
+    {% include "partials/pen/variants.nunj" %}
+
     {% block penContent %}
 
     {% include "partials/pen/header.nunj" %}

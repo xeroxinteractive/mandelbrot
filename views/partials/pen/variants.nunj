@@ -1,0 +1,22 @@
+{% if entity.isComponent %}
+{% set variants = entity.variants() %}
+{% else %}
+{% set variants = entity.parent.variants() %}
+{% endif %}
+
+{% set detailUrl = path(frctl.theme.urlFromRoute('component', { handle: entity.handle })) %}
+
+{% if (variants.items() | length > 1) and not entity.isCollated %}
+  <div class="Pen-panel Pen-variants">
+    {% for variant in variants.items() %}
+      {% set variantUrl =  path(frctl.theme.urlFromRoute('component', { handle: variant.handle })) %}
+      {% if ( detailUrl !=  variantUrl) and (detailUrl + '--default' != variantUrl) %}
+        <a href="{{ variantUrl }}">
+      {% endif %}
+        <span>{{ variant.label }}</span>
+      {% if ( detailUrl != variantUrl ) %}
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}
