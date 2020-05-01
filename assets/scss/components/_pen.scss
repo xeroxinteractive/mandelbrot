@@ -16,10 +16,24 @@
 }
 
 .Pen-variants {
-  > span,
-  > a {
+  position: relative;
+  z-index: 99;
+  margin: 0 $handle-size;
+
+  > a.Pen-variant-link {
+    text-decoration: none;
     display: inline-block;
-    margin: 0.75rem 0.75rem 0;
+    padding: 0.75rem;
+
+    &.active {
+      background-color: $color-background;
+      border-top: 1px solid $color-frame-border;
+      border-right: 1px solid $color-frame-border;
+      border-left: 1px solid $color-frame-border;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      color: #000000;
+    }
   }
 }
 
@@ -80,12 +94,23 @@
   height: 50%;
   max-height: calc(100% - 3.75rem);
   margin: 0 $handle-size;
+  top: -1px;
 
   @include mq($until: navCollapse) {
     flex: 1 1 auto;
     height: auto !important;
     max-height: 100%;
     margin: 0;
+  }
+
+  &.loading {
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.6);
+    }
   }
 }
 

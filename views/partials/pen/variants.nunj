@@ -10,13 +10,10 @@
   <div class="Pen-panel Pen-variants">
     {% for variant in variants.items() %}
       {% set variantUrl =  path(frctl.theme.urlFromRoute('component', { handle: variant.handle })) %}
-      {% if ( detailUrl !=  variantUrl) and (detailUrl + '--default' != variantUrl) %}
-        <a href="{{ variantUrl }}">
-      {% endif %}
-        <span>{{ variant.label }}</span>
-      {% if ( detailUrl != variantUrl ) %}
+      {% set active = 'active' if ((detailUrl == variantUrl) or (detailUrl + '--default' == variantUrl)) else '' %}
+        <a class="Pen-variant-link {{active}}" href="{{ variantUrl }}">
+          <span>{{ variant.label }}</span>
         </a>
-      {% endif %}
     {% endfor %}
   </div>
 {% endif %}
