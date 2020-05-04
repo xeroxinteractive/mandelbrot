@@ -48,7 +48,6 @@ if (frctl.env === 'server') {
       frame.endLoad();
 
       const currentComponent = $('.Frame-panel--main').html();
-      console.log('logging');
       logState(currentComponent, window.location.href, true);
     })
     .on('click', '.Pen-variant-link', function (e) {
@@ -79,7 +78,6 @@ events.on('main-content-loaded', loadPen);
 
 //log initial state
 const currentComponent = $('.Frame-panel--main').html();
-console.log('logging');
 logState(currentComponent, window.location.href, true);
 
 function switchVariant(clickedVariant) {
