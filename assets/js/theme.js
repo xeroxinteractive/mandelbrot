@@ -22,8 +22,6 @@ const navTrees = $.map($('[data-behaviour="tree"]'), (t) => new Tree(t));
 const search = new Search($('[data-behaviour="search"]'), navTrees);
 let pens = [];
 
-let clickedVariant;
-
 loadPen();
 
 if (frctl.env === 'server') {
