@@ -22,7 +22,7 @@ const navTrees = $.map($('[data-behaviour="tree"]'), (t) => new Tree(t));
 const search = new Search($('[data-behaviour="search"]'), navTrees);
 let pens = [];
 
-let selectedComponent;
+let clickedVariant;
 
 loadPen();
 
@@ -46,19 +46,21 @@ if (frctl.env === 'server') {
     .on('pjax:end', function () {
       events.trigger('main-content-loaded');
       frame.endLoad();
+
+      const currentComponent = $('.Frame-panel--main').html();
+      console.log('logging');
+      logState(currentComponent, window.location.href, true);
     })
     .on('click', '.Pen-variant-link', function (e) {
-      selectedComponent = e.currentTarget;
-      const variantUrl = selectedComponent.href;
+      const clickedVariant = e.currentTarget;
+      const variantUrl = clickedVariant.href;
       if (variantUrl && !$(this).hasClass('active')) {
-        const component = $(this);
         $('.Pen-panel.Pen-preview').addClass('loading');
         $('.Pen-panel.Pen-preview').load(
           variantUrl + ' .Pen-panel.Pen-preview .Preview-wrapper',
           function () {
             events.trigger('main-content-loaded');
-            switchComponent();
-            $('.Pen-panel.Pen-preview').removeClass('loading');
+            switchVariant(clickedVariant);
           }
         );
       }
@@ -66,42 +68,47 @@ if (frctl.env === 'server') {
     });
 
   $(window).on('popstate', function (e) {
-    $('.Pen-variant-link.active').removeClass('active');
-    $('.Pen-variant-link[href="' + e.state.selectedHref + '"]').addClass(
-      'active'
-    );
-    $('.Pen-panel.Pen-preview').html(e.state.componentHtml);
-    events.trigger('main-content-loaded');
+    if (e.state) {
+      $('.Frame-panel--main').html(e.state.componentHtml);
+      events.trigger('main-content-loaded');
+    }
   });
 }
 
 events.on('main-content-loaded', loadPen);
 
+//log initial state
+const currentComponent = $('.Frame-panel--main').html();
+console.log('logging');
+logState(currentComponent, window.location.href, true);
+
+function switchVariant(clickedVariant) {
+  $('.Pen-variant-link.active').removeClass('active');
+  $('.Pen-panel.Pen-preview').removeClass('loading');
+  $(clickedVariant).addClass('active');
+  const currentComponent = $('.Frame-panel--main').html();
+  logState(currentComponent, clickedVariant.href);
+}
+
+function logState(currentComponent, url, replace = false) {
+  const selectedHref = $('.Pen-variant-link.active').attr('href');
+  if (replace) {
+    window.history.replaceState(
+      { componentHtml: currentComponent, selectedHref: selectedHref },
+      '',
+      url
+    );
+  } else {
+    window.history.pushState(
+      { componentHtml: currentComponent, selectedHref: selectedHref },
+      '',
+      url
+    );
+  }
+}
+
 function loadPen() {
   setTimeout(function () {
     pens = $.map($('[data-behaviour="pen"]'), (p) => new Pen(p));
   }, 1);
-}
-
-function trackHistory(currentComponent, url) {
-  const selectedHref = $('.Pen-variant-link.active').attr('href');
-  window.history.pushState(
-    { componentHtml: currentComponent, selectedHref: selectedHref },
-    '',
-    url
-  );
-}
-
-function switchComponent() {
-  console.log(selectedComponent);
-  let url;
-  if (selectedComponent) {
-    $('.Pen-variant-link.active').removeClass('active');
-    $(selectedComponent).addClass('active');
-    url = selectedComponent.href;
-  } else {
-    url = window.location.href;
-  }
-  const currentComponent = $('.Pen-panel.Pen-preview').html();
-  trackHistory(currentComponent, url);
 }
