@@ -22,6 +22,8 @@ const navTrees = $.map($('[data-behaviour="tree"]'), (t) => new Tree(t));
 const search = new Search($('[data-behaviour="search"]'), navTrees);
 let pens = [];
 
+let variantLoaded = false;
+
 loadPen();
 
 if (frctl.env === 'server') {
@@ -52,10 +54,17 @@ if (frctl.env === 'server') {
       const clickedVariant = e.currentTarget;
       const variantUrl = clickedVariant.href;
       if (variantUrl && !$(this).hasClass('active')) {
-        $('.Pen-panel.Pen-preview').addClass('loading');
+        variantLoaded = false;
+        setTimeout(function () {
+          if (!variantLoaded) {
+            $('.Pen-panel.Pen-preview').addClass('loading');
+            variantLoaded = true;
+          }
+        }, 100);
         $('.Pen-panel.Pen-preview').load(
           variantUrl + ' .Pen-panel.Pen-preview .Preview-wrapper',
           function () {
+            variantLoaded = true;
             events.trigger('main-content-loaded');
             switchVariant(clickedVariant);
           }

@@ -24,14 +24,15 @@
     text-decoration: none;
     display: inline-block;
     padding: 0.75rem;
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 
     &.active {
       background-color: $color-background;
-      border-top: 1px solid $color-frame-border;
-      border-right: 1px solid $color-frame-border;
-      border-left: 1px solid $color-frame-border;
-      border-top-left-radius: 3px;
-      border-top-right-radius: 3px;
+      border-color: $color-frame-border;
       color: #000000;
     }
   }
@@ -104,12 +105,17 @@
   }
 
   &.loading {
-    &::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255, 255, 255, 0.6);
+    .Preview-wrapper {
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+        background-image: url('../img/loader.svg');
+        background-repeat: no-repeat;
+        background-position: 50%;
+      }
     }
   }
 }
