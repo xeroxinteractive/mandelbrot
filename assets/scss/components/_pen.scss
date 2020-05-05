@@ -19,6 +19,9 @@
   position: relative;
   z-index: 99;
   margin: 0 $handle-size;
+  display: flex;
+  overflow-x: auto;
+  flex: 0 0 auto;
 
   > a.Pen-variant-link {
     text-decoration: none;
@@ -29,6 +32,7 @@
     border-left: 1px solid transparent;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
+    flex-shrink: 0;
 
     &.active {
       background-color: $color-background;

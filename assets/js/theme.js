@@ -48,7 +48,7 @@ if (frctl.env === 'server') {
       frame.endLoad();
 
       const currentComponent = $('.Frame-panel--main').html();
-      logState(currentComponent, window.location.href, true);
+      trackState(currentComponent, window.location.href, true);
     })
     .on('click', '.Pen-variant-link', function (e) {
       const clickedVariant = e.currentTarget;
@@ -66,7 +66,11 @@ if (frctl.env === 'server') {
           function () {
             variantLoaded = true;
             events.trigger('main-content-loaded');
-            switchVariant(clickedVariant);
+            $('.Pen-variant-link.active').removeClass('active');
+            $('.Pen-panel.Pen-preview').removeClass('loading');
+            $(clickedVariant).addClass('active');
+            const currentComponent = $('.Frame-panel--main').html();
+            trackState(currentComponent, clickedVariant.href);
           }
         );
       }
@@ -85,17 +89,9 @@ events.on('main-content-loaded', loadPen);
 
 //log initial state
 const currentComponent = $('.Frame-panel--main').html();
-logState(currentComponent, window.location.href, true);
+trackState(currentComponent, window.location.href, true);
 
-function switchVariant(clickedVariant) {
-  $('.Pen-variant-link.active').removeClass('active');
-  $('.Pen-panel.Pen-preview').removeClass('loading');
-  $(clickedVariant).addClass('active');
-  const currentComponent = $('.Frame-panel--main').html();
-  logState(currentComponent, clickedVariant.href);
-}
-
-function logState(currentComponent, url, replace = false) {
+function trackState(currentComponent, url, replace = false) {
   const selectedHref = $('.Pen-variant-link.active').attr('href');
   if (replace) {
     window.history.replaceState(
