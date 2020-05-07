@@ -57,19 +57,35 @@ if (frctl.env === 'server') {
         variantLoaded = false;
         setTimeout(function () {
           if (!variantLoaded) {
-            frame.startLoad();
+            $('.Pen-variant-link.active').removeClass('active');
+            $(clickedVariant).addClass('active');
+            $('.Pen-panel.Pen-preview').addClass('loading');
+            $('.Pen-panel.Pen-info').addClass('loading');
             variantLoaded = true;
           }
         }, 100);
-        $('.Frame-panel--main').load(
-          variantUrl + ' .Frame-panel--main .Frame-inner',
-          function () {
+        $.get(
+          variantUrl,
+          {},
+          function (data) {
+            const $response = $('<div />').html(data);
+            const $preview = $response.find(
+              '.Pen-panel.Pen-preview .Preview-wrapper'
+            );
+            const $info = $response.find('.Pen-panel.Pen-info .Browser');
+
+            $('.Pen-panel.Pen-preview').removeClass('loading');
+            $('.Pen-panel.Pen-info').removeClass('loading');
+            $('.Pen-panel.Pen-preview').html($preview);
+            $('.Pen-panel.Pen-info').html($info);
+
             variantLoaded = true;
             events.trigger('main-content-loaded');
-            frame.endLoad();
+
             const currentComponent = $('.Frame-panel--main').html();
             trackState(currentComponent, clickedVariant.href);
-          }
+          },
+          'html'
         );
       }
       e.preventDefault();

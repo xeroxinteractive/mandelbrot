@@ -107,6 +107,21 @@
     max-height: 100%;
     margin: 0;
   }
+
+  &.loading {
+    .Preview-wrapper {
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+        background-image: url('../img/loader.svg');
+        background-repeat: no-repeat;
+        background-position: 50%;
+      }
+    }
+  }
 }
 
 .Pen-handle {
@@ -140,5 +155,20 @@
 
   @include mq($until: navCollapse) {
     display: none;
+  }
+
+  &.loading {
+    .Browser {
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+        background-image: url('../img/loader.svg');
+        background-repeat: no-repeat;
+        background-position: 50%;
+      }
+    }
   }
 }
