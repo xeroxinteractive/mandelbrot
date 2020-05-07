@@ -57,18 +57,16 @@ if (frctl.env === 'server') {
         variantLoaded = false;
         setTimeout(function () {
           if (!variantLoaded) {
-            $('.Pen-panel.Pen-preview').addClass('loading');
+            frame.startLoad();
             variantLoaded = true;
           }
         }, 100);
-        $('.Pen-panel.Pen-preview').load(
-          variantUrl + ' .Pen-panel.Pen-preview .Preview-wrapper',
+        $('.Frame-panel--main').load(
+          variantUrl + ' .Frame-panel--main .Frame-inner',
           function () {
             variantLoaded = true;
             events.trigger('main-content-loaded');
-            $('.Pen-variant-link.active').removeClass('active');
-            $('.Pen-panel.Pen-preview').removeClass('loading');
-            $(clickedVariant).addClass('active');
+            frame.endLoad();
             const currentComponent = $('.Frame-panel--main').html();
             trackState(currentComponent, clickedVariant.href);
           }
