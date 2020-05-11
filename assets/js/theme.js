@@ -73,11 +73,13 @@ if (frctl.env === 'server') {
               '.Pen-panel.Pen-preview .Preview-wrapper'
             );
             const $info = $response.find('.Pen-panel.Pen-info .Browser');
+            const $header = $response.find('.Pen-panel.Pen-header .Pen-title');
 
             $('.Pen-panel.Pen-preview').removeClass('loading');
             $('.Pen-panel.Pen-info').removeClass('loading');
             $('.Pen-panel.Pen-preview').html($preview);
             $('.Pen-panel.Pen-info').html($info);
+            $('.Pen-panel.Pen-header').html($header);
 
             variantLoaded = true;
             events.trigger('main-content-loaded');
