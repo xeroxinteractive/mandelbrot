@@ -22,6 +22,8 @@ const navTrees = $.map($('[data-behaviour="tree"]'), (t) => new Tree(t));
 const search = new Search($('[data-behaviour="search"]'), navTrees);
 let pens = [];
 
+let variantLoaded = false;
+
 loadPen();
 
 if (frctl.env === 'server') {
@@ -44,10 +46,81 @@ if (frctl.env === 'server') {
     .on('pjax:end', function () {
       events.trigger('main-content-loaded');
       frame.endLoad();
+
+      const currentComponent = $('.Frame-panel--main').html();
+      trackState(currentComponent, window.location.href, true);
+    })
+    .on('click', '.Pen-variant-link', function (e) {
+      const clickedVariant = e.currentTarget;
+      const variantUrl = clickedVariant.href;
+      if (variantUrl && !$(this).hasClass('active')) {
+        variantLoaded = false;
+        setTimeout(function () {
+          if (!variantLoaded) {
+            $('.Pen-variant-link.active').removeClass('active');
+            $(clickedVariant).addClass('active');
+            $('.Pen-panel.Pen-preview').addClass('loading');
+            $('.Pen-panel.Pen-info').addClass('loading');
+            variantLoaded = true;
+          }
+        }, 100);
+        $.get(
+          variantUrl,
+          {},
+          function (data) {
+            const $response = $('<div />').html(data);
+            const $preview = $response.find(
+              '.Pen-panel.Pen-preview .Preview-wrapper'
+            );
+            const $info = $response.find('.Pen-panel.Pen-info .Browser');
+
+            $('.Pen-panel.Pen-preview').removeClass('loading');
+            $('.Pen-panel.Pen-info').removeClass('loading');
+            $('.Pen-panel.Pen-preview').html($preview);
+            $('.Pen-panel.Pen-info').html($info);
+
+            variantLoaded = true;
+            events.trigger('main-content-loaded');
+
+            const currentComponent = $('.Frame-panel--main').html();
+            trackState(currentComponent, clickedVariant.href);
+          },
+          'html'
+        );
+      }
+      e.preventDefault();
     });
+
+  $(window).on('popstate', function (e) {
+    if (e.state) {
+      $('.Frame-panel--main').html(e.state.componentHtml);
+      events.trigger('main-content-loaded');
+    }
+  });
 }
 
 events.on('main-content-loaded', loadPen);
+
+//log initial state
+const currentComponent = $('.Frame-panel--main').html();
+trackState(currentComponent, window.location.href, true);
+
+function trackState(currentComponent, url, replace = false) {
+  const selectedHref = $('.Pen-variant-link.active').attr('href');
+  if (replace) {
+    window.history.replaceState(
+      { componentHtml: currentComponent, selectedHref: selectedHref },
+      '',
+      url
+    );
+  } else {
+    window.history.pushState(
+      { componentHtml: currentComponent, selectedHref: selectedHref },
+      '',
+      url
+    );
+  }
+}
 
 function loadPen() {
   setTimeout(function () {

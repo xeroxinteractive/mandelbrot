@@ -5,8 +5,8 @@ const Path = require('path');
 const prettierConfig = require('@xerox/prettier-config');
 const prettier = require('prettier');
 
-module.exports = function(theme, env, app) {
-  env.engine.addFilter('url', function(item) {
+module.exports = function (theme, env, app) {
+  env.engine.addFilter('url', function (item) {
     if (item.isDoc) {
       if (!item.path) {
         return '/';
@@ -22,7 +22,7 @@ module.exports = function(theme, env, app) {
     throw new Error(`Cannot generate URL for ${item}`);
   });
 
-  env.engine.addFilter('prettier', function(str, parser) {
+  env.engine.addFilter('prettier', function (str, parser) {
     try {
       let prettierOptions = theme.getOption('prettier') || {};
 
@@ -44,13 +44,13 @@ module.exports = function(theme, env, app) {
     }
   });
 
-  env.engine.addFilter('resourceUrl', function(str) {
+  env.engine.addFilter('resourceUrl', function (str) {
     return `/${app.web.get(
       'assets.mount'
     )}/components/${Path.relative(Path.resolve(app.components.get('path')), Path.resolve(str))}`;
   });
 
-  env.engine.addFilter('componentPath', function(str) {
+  env.engine.addFilter('componentPath', function (str) {
     return Path.relative(
       process.cwd(),
       Path.join(
@@ -72,7 +72,7 @@ module.exports = function(theme, env, app) {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
   });
 
-  env.engine.addFilter('linkRefs', function(str, item) {
+  env.engine.addFilter('linkRefs', function (str, item) {
     if (!(item.isComponent || item.isVariant)) {
       return str;
     }

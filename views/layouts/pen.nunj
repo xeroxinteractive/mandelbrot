@@ -28,6 +28,8 @@
 
     {% include "partials/pen/header.nunj" %}
 
+    {% include "partials/pen/variants.nunj" %}
+
     {% include "partials/pen/preview.nunj" %}
 
     <div class="Pen-handle Pen-handle--browser" data-role="resize-handle"></div>
