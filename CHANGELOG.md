@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/xeroxinteractive/fractal-theme/compare/v1.7.0...v1.7.1) (2020-05-11)
+
+
+### Bug Fixes
+
+* switch preview link for tabs ([#76](https://github.com/xeroxinteractive/fractal-theme/issues/76)) ([7b6304b](https://github.com/xeroxinteractive/fractal-theme/commit/7b6304bc9727bfe6d2bc5fc254117e42faf585f9))
+
 # [1.7.0](https://github.com/xeroxinteractive/fractal-theme/compare/v1.6.0...v1.7.0) (2020-05-11)
 
 
