@@ -1,9 +1,13 @@
 <div class="Pen-panel Pen-header">
     <h1 class="Pen-title">
+      {% if not entity.isCollated %}
         <a class="Pen-previewLink" href="{{ previewUrl }}" title="Component preview">
             {{ entity.title }}
             {% include "icons/open-in-browser.svg" %}
         </a>
+      {% else %}
+        {{ entity.title }}
+      {% endif %}
     </h1>
     {{ status.tag(entity.status) }}
 </div>
