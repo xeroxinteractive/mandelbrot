@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/xeroxinteractive/fractal-theme/compare/v1.6.0...v1.7.0) (2020-05-11)
+
+
+### Features
+
+* fix prettier + tabs ([#72](https://github.com/xeroxinteractive/fractal-theme/issues/72)) ([eb6916a](https://github.com/xeroxinteractive/fractal-theme/commit/eb6916a947f7662897b1d6cf872e8b44a41063e0))
+
 # [1.6.0](https://github.com/xeroxinteractive/fractal-theme/compare/v1.5.0...v1.6.0) (2020-03-24)
 
 
