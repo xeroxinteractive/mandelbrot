@@ -4,13 +4,11 @@
 {% set variants = entity.parent.variants() %}
 {% endif %}
 
-{% set detailUrl = path(frctl.theme.urlFromRoute('component', { handle: entity.handle })) %}
-
 {% if (variants.items() | length > 1) and not entity.isCollated %}
   <div class="Pen-panel Pen-variants">
     {% for variant in variants.items() %}
       {% set variantUrl =  path(frctl.theme.urlFromRoute('component', { handle: variant.handle })) %}
-      {% set active = 'active' if ((detailUrl == variantUrl) or (detailUrl + '--default' == variantUrl)) else '' %}
+      {% set active = 'active' if ((entity.handle == variant.handle) or (entity.handle == variant.baseHandle) and variant.isDefault) else '' %}
         <a class="Pen-variant-link {{active}}" href="{{ variantUrl }}">
           <span>{{ variant.label }}</span>
         </a>
