@@ -1,3 +1,5 @@
+## [1.7.3](https://github.com/xeroxinteractive/fractal-theme/compare/v1.7.2...v1.7.3) (2020-05-13)
+
 ## [1.7.2](https://github.com/xeroxinteractive/fractal-theme/compare/v1.7.1...v1.7.2) (2020-05-13)
 
 
