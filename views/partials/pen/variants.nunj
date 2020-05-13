@@ -8,7 +8,7 @@
   <div class="Pen-panel Pen-variants">
     {% for variant in variants.items() %}
       {% set variantUrl =  path(frctl.theme.urlFromRoute('component', { handle: variant.handle })) %}
-      {% set active = 'active' if ((entity.handle == variant.handle) or (entity.handle == variant.baseHandle) and variant.isDefault) else '' %}
+      {% set active = 'active' if ((entity.handle == variant.handle) or ((entity.handle == variant.baseHandle) and variant.isDefault)) else '' %}
         <a class="Pen-variant-link {{active}}" href="{{ variantUrl }}">
           <span>{{ variant.label }}</span>
         </a>
