@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/xeroxinteractive/fractal-theme/compare/v1.7.1...v1.7.2) (2020-05-13)
+
+
+### Bug Fixes
+
+* **deps:** @fractal/frctl@1.3.0 ([#81](https://github.com/xeroxinteractive/fractal-theme/issues/81)) ([2d51c9a](https://github.com/xeroxinteractive/fractal-theme/commit/2d51c9aec2d4128db54efe73dc6af15790706adb))
+
 ## [1.7.1](https://github.com/xeroxinteractive/fractal-theme/compare/v1.7.0...v1.7.1) (2020-05-11)
 
 
