@@ -1,3 +1,73 @@
+## [1.7.2](https://github.com/xeroxinteractive/fractal-theme/compare/v1.7.1...v1.7.2) (2020-05-13)
+
+
+### Bug Fixes
+
+* **deps:** @fractal/frctl@1.3.0 ([#81](https://github.com/xeroxinteractive/fractal-theme/issues/81)) ([2d51c9a](https://github.com/xeroxinteractive/fractal-theme/commit/2d51c9aec2d4128db54efe73dc6af15790706adb))
+
+## [1.7.1](https://github.com/xeroxinteractive/fractal-theme/compare/v1.7.0...v1.7.1) (2020-05-11)
+
+
+### Bug Fixes
+
+* switch preview link for tabs ([#76](https://github.com/xeroxinteractive/fractal-theme/issues/76)) ([7b6304b](https://github.com/xeroxinteractive/fractal-theme/commit/7b6304bc9727bfe6d2bc5fc254117e42faf585f9))
+
+# [1.7.0](https://github.com/xeroxinteractive/fractal-theme/compare/v1.6.0...v1.7.0) (2020-05-11)
+
+
+### Features
+
+* fix prettier + tabs ([#72](https://github.com/xeroxinteractive/fractal-theme/issues/72)) ([eb6916a](https://github.com/xeroxinteractive/fractal-theme/commit/eb6916a947f7662897b1d6cf872e8b44a41063e0))
+
+# [1.6.0](https://github.com/xeroxinteractive/fractal-theme/compare/v1.5.0...v1.6.0) (2020-03-24)
+
+
+### Features
+
+* enable new preset-env bugfixes option ([ce0f04c](https://github.com/xeroxinteractive/fractal-theme/commit/ce0f04cb0c54c6ade8fded75a2ef044d184ee41f))
+* **search:** replace - or _ with space ([7133981](https://github.com/xeroxinteractive/fractal-theme/commit/71339819e8eeb51d8e5052aefd80a33ef2e4d3cd))
+
+# [1.5.0](https://github.com/xeroxinteractive/fractal-theme/compare/v1.4.0...v1.5.0) (2020-02-05)
+
+
+### Features
+
+* fuzzy search ([33ee717](https://github.com/xeroxinteractive/fractal-theme/commit/33ee717fbdf073c9fe896569f7dca435ee12717e))
+
+# [1.4.0](https://github.com/xeroxinteractive/fractal-theme/compare/v1.3.3...v1.4.0) (2020-01-20)
+
+
+### Bug Fixes
+
+* select2 error ([25a5637](https://github.com/xeroxinteractive/fractal-theme/commit/25a5637f8742873da3e2f402db1bfa114c2cc588))
+
+
+### Features
+
+* allow svg's in grid styling ([e504c19](https://github.com/xeroxinteractive/fractal-theme/commit/e504c19e207b82430d942c93805b8c724b8c9796))
+* replace js-beautify with prettier ([b01a56a](https://github.com/xeroxinteractive/fractal-theme/commit/b01a56a3a2364df70a57dc427d35b982a1d18cfd))
+
+## [1.3.3](https://github.com/xeroxinteractive/fractal-theme/compare/v1.3.2...v1.3.3) (2020-01-15)
+
+
+### Bug Fixes
+
+* cross-browser iframe quirks ([4c3e53a](https://github.com/xeroxinteractive/fractal-theme/commit/4c3e53a562bd0c03d5dc90b157ac8a92028328b8))
+
+## [1.3.2](https://github.com/xeroxinteractive/fractal-theme/compare/v1.3.1...v1.3.2) (2020-01-14)
+
+
+### Bug Fixes
+
+* preview.width being undefined ([6e8ba18](https://github.com/xeroxinteractive/fractal-theme/commit/6e8ba182eafd4de36ba7394c85069b712f8b9458))
+
+## [1.3.1](https://github.com/xeroxinteractive/fractal-theme/compare/v1.3.0...v1.3.1) (2020-01-13)
+
+
+### Bug Fixes
+
+* resizable selectors ([3aa3174](https://github.com/xeroxinteractive/fractal-theme/commit/3aa3174d9b5c2dcc82fda98dd93ce0d2366cb220))
+
 # [1.3.0](https://github.com/xeroxinteractive/fractal-theme/compare/v1.2.1...v1.3.0) (2020-01-09)
 
 
