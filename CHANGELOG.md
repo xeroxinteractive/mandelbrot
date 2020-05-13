@@ -1,3 +1,10 @@
+## [1.7.4](https://github.com/xeroxinteractive/fractal-theme/compare/v1.7.3...v1.7.4) (2020-05-13)
+
+
+### Bug Fixes
+
+* active tab logic ([#79](https://github.com/xeroxinteractive/fractal-theme/issues/79)) ([c4e4418](https://github.com/xeroxinteractive/fractal-theme/commit/c4e44186c8c316a758f545f9fe235377585cb932))
+
 ## [1.7.3](https://github.com/xeroxinteractive/fractal-theme/compare/v1.7.2...v1.7.3) (2020-05-13)
 
 ## [1.7.2](https://github.com/xeroxinteractive/fractal-theme/compare/v1.7.1...v1.7.2) (2020-05-13)
