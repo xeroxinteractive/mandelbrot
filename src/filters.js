@@ -23,25 +23,20 @@ module.exports = function (theme, env, app) {
   });
 
   env.engine.addFilter('prettier', function (str, parser) {
-    try {
-      let prettierOptions = theme.getOption('prettier') || {};
+    let prettierOptions = theme.getOption('prettier') || {};
 
-      if (typeof prettierOptions === 'function') {
-        return prettierOptions(str);
-      }
-
-      prettierOptions = _.merge(
-        {},
-        { parser: parser.toLowerCase() },
-        prettierConfig,
-        prettierOptions
-      );
-
-      return prettier.format(str.toString(), prettierOptions);
-    } catch (error) {
-      console.warn(error);
-      return str;
+    if (typeof prettierOptions === 'function') {
+      return prettierOptions(str);
     }
+
+    prettierOptions = _.merge(
+      {},
+      { parser: parser.toLowerCase() },
+      prettierConfig,
+      prettierOptions
+    );
+
+    return prettier.format(str.toString(), prettierOptions);
   });
 
   env.engine.addFilter('resourceUrl', function (str) {
