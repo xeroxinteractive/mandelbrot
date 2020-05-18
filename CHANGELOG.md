@@ -1,3 +1,10 @@
+## [1.7.5](https://github.com/xeroxinteractive/fractal-theme/compare/v1.7.4...v1.7.5) (2020-05-18)
+
+
+### Bug Fixes
+
+* allow prettier to throw ([1952db3](https://github.com/xeroxinteractive/fractal-theme/commit/1952db389a281c5724d8985a92104383d00fc5db))
+
 ## [1.7.4](https://github.com/xeroxinteractive/fractal-theme/compare/v1.7.3...v1.7.4) (2020-05-13)
 
 
