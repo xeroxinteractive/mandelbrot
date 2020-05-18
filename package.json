@@ -74,7 +74,7 @@
     "normalize.css": "^8.0.1",
     "sass-mq": "^5.0.1",
     "select2": "4.0.13",
-    "semantic-release": "17.0.4",
+    "semantic-release": "17.0.7",
     "stylelint": "^13.0.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
