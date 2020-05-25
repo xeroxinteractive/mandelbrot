@@ -1135,7 +1135,7 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@semantic-release/changelog@^5.0.0":
+"@semantic-release/changelog@^5.0.1":
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@semantic-release/changelog/-/changelog-5.0.1.tgz#50a84b63e5d391b7debfe021421589fa2bcdafe4"
   integrity sha512-unvqHo5jk4dvAf2nZ3aw4imrlwQ2I50eVVvq9D47Qc3R+keNqepx1vDYwkjF8guFXnOYaYcR28yrZWno1hFbiw==
@@ -1429,16 +1429,16 @@
   integrity sha512-ECbaPeuPkvVejwwqJU2xto9U5veFM7wkPM9HvlHfT0ODMKsc/20///VbbkKfCyVYgtG3XHZWhP5gp+u3hs0UuQ==
 
 "@xerox/semantic-release-config@^2.2.2":
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/@xerox/semantic-release-config/-/semantic-release-config-2.2.2.tgz#802e191a5cc0141fcaee10d64db00f38e347e93b"
-  integrity sha512-CA/EsXGzuVCj6toamKAgcDaSfBtyxtBrtgnPnU4O1r4QRTdSFnHdkrDzaYN6v8oCs1s40rIzxihM2yqsRYd7xA==
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@xerox/semantic-release-config/-/semantic-release-config-2.2.3.tgz#c1e468a81d763324baa32dec95c3db06bc738143"
+  integrity sha512-qVa2nSSc83ae06qmg2q0YKS+RMefxUvm2UFOJBDT9686r6A1vFkTRsZ7W9j2yXnm3Ce2lhxJU77fghDL51SwtA==
   dependencies:
-    "@semantic-release/changelog" "^5.0.0"
+    "@semantic-release/changelog" "^5.0.1"
     "@semantic-release/commit-analyzer" "^8.0.1"
     "@semantic-release/git" "^9.0.0"
     "@semantic-release/npm" "^7.0.5"
     "@semantic-release/release-notes-generator" "^9.0.1"
-    semantic-release-slack-bot "^1.5.0"
+    semantic-release-slack-bot "^1.6.2"
 
 "@xerox/stylelint-config@^1.0.1":
   version "1.0.2"
@@ -10392,10 +10392,10 @@ select2@4.0.13:
   resolved "https://registry.yarnpkg.com/select2/-/select2-4.0.13.tgz#0dbe377df3f96167c4c1626033e924372d8ef44d"
   integrity sha512-1JeB87s6oN/TDxQQYCvS5EFoQyvV6eYMZZ0AeA4tdFDYWN3BAGZ8npr17UBFddU0lgAt3H0yjX3X6/ekOj1yjw==
 
-semantic-release-slack-bot@^1.5.0:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/semantic-release-slack-bot/-/semantic-release-slack-bot-1.6.1.tgz#e5513df4215be65e79c5ea2166dbeba9eaf996c5"
-  integrity sha512-r5sVI0bf3QvnTPmJis9ZCIwfg/jB1LBC0xozGnpbxMgTT6M3W11wIk71eKUYlTbJbSN46zUuaR2HfMLvMhjcTA==
+semantic-release-slack-bot@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/semantic-release-slack-bot/-/semantic-release-slack-bot-1.6.2.tgz#b07c9596d808c07eebedb9defc1fc0208ca76272"
+  integrity sha512-XVfignER7ZXGstfu0T2pyPIx1rsuSHEDRsScTcVmFNrAYBPCYEzBMmYdAd+Zq/UItmEcexcfi2h+7AIC8PeyWQ==
   dependencies:
     "@semantic-release/error" "^2.2.0"
     node-fetch "^2.3.0"
