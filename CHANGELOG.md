@@ -1,3 +1,10 @@
+## [1.7.6](https://github.com/xeroxinteractive/fractal-theme/compare/v1.7.5...v1.7.6) (2020-06-08)
+
+
+### Bug Fixes
+
+* prettier error formatting and throwing ([be2d1c2](https://github.com/xeroxinteractive/fractal-theme/commit/be2d1c2b3208e35b16591d20e292bb26a4861087))
+
 ## [1.7.5](https://github.com/xeroxinteractive/fractal-theme/compare/v1.7.4...v1.7.5) (2020-05-18)
 
 
