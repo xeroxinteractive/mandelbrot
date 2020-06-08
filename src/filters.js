@@ -3,7 +3,9 @@
 const _ = require('lodash');
 const Path = require('path');
 const prettierConfig = require('@xerox/prettier-config');
-const prettier = require('prettier');
+const prettier = require('prettier/standalone');
+const prettierBabel = require('prettier/parser-babel');
+const prettierHtml = require('prettier/parser-html');
 
 module.exports = function (theme, env, app) {
   env.engine.addFilter('url', function (item) {
@@ -22,22 +24,30 @@ module.exports = function (theme, env, app) {
     throw new Error(`Cannot generate URL for ${item}`);
   });
 
-  env.engine.addFilter('prettier', function (str, parser) {
-    let prettierOptions = theme.getOption('prettier') || {};
+  env.engine.addFilter(
+    'prettier',
+    function (str, parser, callback) {
+      let prettierOptions = theme.getOption('prettier') || {};
 
-    if (typeof prettierOptions === 'function') {
-      return prettierOptions(str);
-    }
+      if (typeof prettierOptions === 'function') {
+        return prettierOptions(str);
+      }
 
-    prettierOptions = _.merge(
-      {},
-      { parser: parser.toLowerCase() },
-      prettierConfig,
-      prettierOptions
-    );
-
-    return prettier.format(str.toString(), prettierOptions);
-  });
+      prettierOptions = _.merge(
+        {},
+        { parser: parser.toLowerCase() },
+        prettierConfig,
+        prettierOptions,
+        { plugins: [prettierBabel, prettierHtml] }
+      );
+      try {
+        callback(null, prettier.format(str.toString(), prettierOptions));
+      } catch (e) {
+        callback(e);
+      }
+    },
+    true
+  );
 
   env.engine.addFilter('resourceUrl', function (str) {
     return `/${app.web.get(

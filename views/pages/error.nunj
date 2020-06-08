@@ -9,12 +9,12 @@
 <div class="Error">
 
     <div class="Error-message Prose">
-        {{ error.message | default('No more information is available.') | markdown }}
+      {{ error.message | escape | default('No more information is available.') | markdown }}
     </div>
 
     {% if error.stack and error.status != '404' %}
     <code class="Code Error-stack">
-        <pre>{{ error.stack }}</pre>
+        <pre>{{ error.stack | escape }}</pre>
     </code>
     {% endif %}
 
