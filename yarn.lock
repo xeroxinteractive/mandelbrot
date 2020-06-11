@@ -1476,9 +1476,9 @@
     semantic-release-slack-bot "^1.6.2"
 
 "@xerox/stylelint-config@^1.0.1":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@xerox/stylelint-config/-/stylelint-config-1.0.3.tgz#ba59a52d374c3864aa90726a026e5249001af27a"
-  integrity sha512-1uzuO0j0RY5aoO49Lckxw+oUMpMEdjtN8NyU88NAz5UkF/aWvjko8a9gWk39XiRcUkXcnl8g65RpS7gR6V1nNg==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@xerox/stylelint-config/-/stylelint-config-1.1.0.tgz#9933aeb11c86364c3bfa7a02a12fbbe1ce585e5c"
+  integrity sha512-QA9/JLC5IbpAqm3qB4jI4VKYV6/q5lSo8QEgESwF2/Jcgoik3NLrZ1LskflaFqNdf6+XKdU1CEXgDayIieN4Pw==
   dependencies:
     stylelint-config-prettier "^8.0.1"
     stylelint-config-recommended "^3.0.0"
