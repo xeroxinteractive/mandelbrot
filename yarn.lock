@@ -1439,9 +1439,9 @@
     eslint-visitor-keys "^1.1.0"
 
 "@xerox/browserslist-config@^1.0.1":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@xerox/browserslist-config/-/browserslist-config-1.0.4.tgz#265ea14b9d5f1848800871727d8732886da730de"
-  integrity sha512-TsqkC/82SkG364J0ESfEOjN7GQnzpL6lvBCXLFT+f5/vaZAMa8VcWDidPLLPhkDoy1wHclqRyNI/BCQZjltDHw==
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@xerox/browserslist-config/-/browserslist-config-1.0.5.tgz#cddb08085d3fdb4712125242f6ff3d8554e7d872"
+  integrity sha512-5SiOIbalpj5VpL2m5o2Yx0shhJhsRlAWrpUS1FzTtd9kKgQRgx36wTCX9bECohI+iGebN7osHpYa+5OzLJZ8kg==
 
 "@xerox/commitlint-config@^2.1.0":
   version "2.1.2"
